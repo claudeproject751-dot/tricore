@@ -1,21 +1,52 @@
-# EmotionSense
+<div align="center">
 
-Real-time emotion classification for short English text. Type a sentence, get a
-probability across six emotions — **sadness, joy, love, anger, fear, surprise** —
-with the full distribution, not just the winner.
+# 🎭 EmotionSense
+
+**Real-time emotion intelligence for text.**
+
+Type a sentence, get a probability across six emotions — **sadness, joy, love,
+anger, fear, surprise** — with the full distribution, not just the winner.
+
+[**▶ Live app**](https://emotionsense-ochre.vercel.app) ·
+[**API**](https://emotionsense-api-452m.onrender.com/api/health) ·
+[**API docs**](https://emotionsense-api-452m.onrender.com/docs) ·
+[**Training notebook**](ml/notebooks/emotionsense_train_kaggle.ipynb) ·
+[**Deployment runbook**](DEPLOYMENT.md)
+
+[![Live](https://img.shields.io/badge/demo-live-2DD4BF?style=flat-square)](https://emotionsense-ochre.vercel.app)
+[![API](https://img.shields.io/badge/API-docs-8B5CF6?style=flat-square)](https://emotionsense-api-452m.onrender.com/docs)
+[![CI](https://img.shields.io/github/actions/workflow/status/claudeproject751-dot/tricore/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/claudeproject751-dot/tricore/actions/workflows/ci.yml)
+[![Accuracy](https://img.shields.io/badge/test%20accuracy-92.70%25-F5B942?style=flat-square)](#results)
+[![Macro F1](https://img.shields.io/badge/macro%20F1-0.8825-E85D8C?style=flat-square)](#results)
+
+[![Next.js](https://img.shields.io/badge/Next.js%2014-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Transformers-FFD21E?style=flat-square)](https://huggingface.co/docs/transformers)
+[![License](https://img.shields.io/badge/license-MIT-A1A1AA?style=flat-square)](#dataset--license)
+
+</div>
 
 A DistilBERT classifier fine-tuned on [`dair-ai/emotion`](https://huggingface.co/datasets/dair-ai/emotion),
 served by FastAPI, fronted by Next.js 14.
 
+> [!NOTE]
+> The API runs on Render's free tier and sleeps after ~15 minutes idle. The first
+> request afterwards takes 30–60s. The UI shows a designed "waking up the model"
+> state for exactly this reason rather than looking broken.
+
+## What's inside
+
 | | |
 |---|---|
-| **Live app** | https://emotionsense-ochre.vercel.app |
-| **API** | https://emotionsense-api-452m.onrender.com |
-| **API docs** | https://emotionsense-api-452m.onrender.com/docs |
-
-> The API runs on Render's free tier and sleeps after ~15 minutes idle. The first
-> request afterwards takes 30–60s — the UI shows a "waking up the model" state
-> for exactly this reason rather than looking broken.
+| 🎯 **Live analysis** | Debounced 400ms as you type — no submit button, no spinner |
+| 📊 **Full distribution** | Animated radar + confidence bars across all six classes |
+| 📁 **Batch mode** | Paste lines or drop a CSV → per-row table, aggregate chart, CSV export |
+| 🕐 **Session history** | Local-only rail of past analyses, persisted across refresh |
+| 🌗 **Dark & light** | Two independently designed palettes, not one inverted |
+| 🧪 **58 tests** | 40 pytest + 18 Vitest, plus lint, typecheck and Docker build in CI |
+| 📉 **Honest numbers** | Every metric read from `metrics.json`; nothing hardcoded |
 
 ---
 
@@ -241,6 +272,17 @@ curl -X POST https://<your-api>/api/predict \
 ---
 
 ## Deployment
+
+Currently deployed at:
+
+| component | host | URL |
+|---|---|---|
+| Frontend | Vercel | https://emotionsense-ochre.vercel.app |
+| Backend | Render (Docker) | https://emotionsense-api-452m.onrender.com |
+| API docs | Render | https://emotionsense-api-452m.onrender.com/docs |
+
+Full provisioning steps, environment variables, cold-start behaviour, smoke
+tests and troubleshooting live in **[DEPLOYMENT.md](DEPLOYMENT.md)**.
 
 ### Backend → Render
 
