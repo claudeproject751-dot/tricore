@@ -1,0 +1,35 @@
+# Render Blueprint — deploys the EmotionSense API as a Docker web service.
+# In Render: New -> Blueprint -> pick this repo. Render reads this file.
+services:
+  - type: web
+    name: emotionsense-api
+    runtime: docker
+    plan: free
+    region: oregon
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Point this at your own model once it is pushed to the Hub.
+      - key: MODEL_REPO
+        value: bhadresh-savani/distilbert-base-uncased-emotion
+      # Comma-separated. Add your production Vercel domain here.
+      - key: ALLOWED_ORIGIN
+        value: https://emotionsense.vercel.app,http://localhost:3000
+      - key: RATE_LIMIT
+        value: 60/minute
+      - key: MAX_TEXT_LENGTH
+        value: "1000"
+      - key: MAX_BATCH_SIZE
+        value: "200"
+      - key: ENABLE_DOCS
+        value: "true"
+      - key: LOG_LEVEL
+        value: INFO
+      # Weights are cached inside the image; this keeps runtime downloads off disk.
+      - key: HF_HOME
+        value: /app/model_cache
+      # Set in the dashboard, not here, if MODEL_REPO is a private repo.
+      - key: HF_TOKEN
+        sync: false

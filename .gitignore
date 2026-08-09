@@ -1,0 +1,45 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ---- Node / Next ----
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+coverage/
+
+# ---- Env ----
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ---- ML artifacts (heavy) ----
+ml/artifacts/checkpoints/
+ml/artifacts/emotion-distilbert/
+ml/artifacts/*.joblib
+ml/artifacts/onnx/
+ml/.cache/
+backend/model_cache/
+
+# Keep the light, citable artifacts in git:
+!ml/artifacts/metrics.json
+!ml/artifacts/baseline_metrics.json
+!ml/artifacts/class_distribution.json
+!ml/artifacts/*.png
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+.claude/

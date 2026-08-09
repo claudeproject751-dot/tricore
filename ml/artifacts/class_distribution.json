@@ -1,0 +1,59 @@
+{
+  "train": {
+    "total": 16000,
+    "counts": {
+      "sadness": 4666,
+      "joy": 5362,
+      "love": 1304,
+      "anger": 2159,
+      "fear": 1937,
+      "surprise": 572
+    },
+    "percentages": {
+      "sadness": 29.16,
+      "joy": 33.51,
+      "love": 8.15,
+      "anger": 13.49,
+      "fear": 12.11,
+      "surprise": 3.58
+    }
+  },
+  "validation": {
+    "total": 2000,
+    "counts": {
+      "sadness": 550,
+      "joy": 704,
+      "love": 178,
+      "anger": 275,
+      "fear": 212,
+      "surprise": 81
+    },
+    "percentages": {
+      "sadness": 27.5,
+      "joy": 35.2,
+      "love": 8.9,
+      "anger": 13.75,
+      "fear": 10.6,
+      "surprise": 4.05
+    }
+  },
+  "test": {
+    "total": 2000,
+    "counts": {
+      "sadness": 581,
+      "joy": 695,
+      "love": 159,
+      "anger": 275,
+      "fear": 224,
+      "surprise": 66
+    },
+    "percentages": {
+      "sadness": 29.05,
+      "joy": 34.75,
+      "love": 7.95,
+      "anger": 13.75,
+      "fear": 11.2,
+      "surprise": 3.3
+    }
+  }
+}

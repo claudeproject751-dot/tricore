@@ -1,0 +1,26 @@
+{
+  "dataset": "dair-ai/emotion:split",
+  "splits": {
+    "train": 16000,
+    "validation": 2000,
+    "test": 2000
+  },
+  "labels": {
+    "0": "sadness",
+    "1": "joy",
+    "2": "love",
+    "3": "anger",
+    "4": "fear",
+    "5": "surprise"
+  },
+  "train_text_chars": {
+    "min": 7,
+    "max": 300,
+    "mean": 96.8
+  },
+  "train_text_words": {
+    "min": 2,
+    "max": 66,
+    "mean": 19.2
+  }
+}
