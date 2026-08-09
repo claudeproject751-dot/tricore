@@ -1,0 +1,136 @@
+{
+  "model": {
+    "id": "bhadresh-savani/distilbert-base-uncased-emotion",
+    "base": "distilbert-base-uncased",
+    "architecture": "DistilBertForSequenceClassification",
+    "num_labels": 6,
+    "parameters": 66958086
+  },
+  "dataset": {
+    "id": "dair-ai/emotion",
+    "config": "split",
+    "splits": {
+      "train": 16000,
+      "validation": 2000,
+      "test": 2000
+    },
+    "license_note": "Research / educational use — see the dataset card.",
+    "citation": "Saravia et al., CARER: Contextualized Affect Representations for Emotion Recognition, EMNLP 2018."
+  },
+  "evaluation": {
+    "split": "test",
+    "n": 2000,
+    "accuracy": 0.927,
+    "f1_macro": 0.8825,
+    "f1_weighted": 0.9269
+  },
+  "per_class": {
+    "sadness": {
+      "precision": 0.9689,
+      "recall": 0.9656,
+      "f1": 0.9672,
+      "support": 581
+    },
+    "joy": {
+      "precision": 0.9493,
+      "recall": 0.9424,
+      "f1": 0.9458,
+      "support": 695
+    },
+    "love": {
+      "precision": 0.8036,
+      "recall": 0.8491,
+      "f1": 0.8257,
+      "support": 159
+    },
+    "anger": {
+      "precision": 0.9267,
+      "recall": 0.92,
+      "f1": 0.9234,
+      "support": 275
+    },
+    "fear": {
+      "precision": 0.8761,
+      "recall": 0.9152,
+      "f1": 0.8952,
+      "support": 224
+    },
+    "surprise": {
+      "precision": 0.8036,
+      "recall": 0.6818,
+      "f1": 0.7377,
+      "support": 66
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "sadness",
+      "joy",
+      "love",
+      "anger",
+      "fear",
+      "surprise"
+    ],
+    "counts": [
+      [
+        561,
+        4,
+        1,
+        10,
+        5,
+        0
+      ],
+      [
+        1,
+        655,
+        32,
+        3,
+        0,
+        4
+      ],
+      [
+        0,
+        23,
+        135,
+        1,
+        0,
+        0
+      ],
+      [
+        10,
+        3,
+        0,
+        253,
+        9,
+        0
+      ],
+      [
+        6,
+        0,
+        0,
+        6,
+        205,
+        7
+      ],
+      [
+        1,
+        5,
+        0,
+        0,
+        15,
+        45
+      ]
+    ]
+  },
+  "baseline_comparison": {
+    "accuracy": 0.8715,
+    "f1_macro": 0.8344
+  },
+  "throughput": {
+    "device": "cpu",
+    "hardware": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "batch_size": 64,
+    "total_seconds": 106.14,
+    "ms_per_sample": 53.07
+  }
+}

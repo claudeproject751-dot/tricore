@@ -99,21 +99,29 @@ def plot_confusion(cm: np.ndarray, path: Path) -> None:
 
 def main() -> None:
     p = argparse.ArgumentParser()
-    p.add_argument("--model-dir", type=Path, default=DEFAULT_MODEL_DIR)
+    # Kept as a plain string: Path() would rewrite a Hub repo id's "/" into "\"
+    # on Windows and break repo-id detection.
+    p.add_argument("--model-dir", default=str(DEFAULT_MODEL_DIR))
     p.add_argument("--batch-size", type=int, default=64)
     args = p.parse_args()
 
     banner("Phase 1.4 — Test-set evaluation")
-    if not Path(args.model_dir).exists():
+
+    # `--model-dir` accepts either a local directory or a Hub repo id, so the
+    # exact model a deployment is serving can be scored without downloading it
+    # into the repo first.
+    target = str(args.model_dir)
+    is_local = Path(target).exists()
+    if not is_local and "/" not in target:
         raise SystemExit(
-            f"Model not found at {args.model_dir}.\n"
-            "Train it first (python ml/train_transformer.py) or pass --model-dir with a\n"
-            "Hugging Face repo id you have already pushed."
+            f"No model at {target}, and it isn't a Hugging Face repo id either.\n"
+            "Train one (python ml/train_transformer.py) or pass --model-dir <user>/<repo>."
         )
+    print(f"  scoring: {target}  ({'local' if is_local else 'Hugging Face Hub'})")
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    tokenizer = AutoTokenizer.from_pretrained(str(args.model_dir))
-    model = AutoModelForSequenceClassification.from_pretrained(str(args.model_dir)).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(target)
+    model = AutoModelForSequenceClassification.from_pretrained(target).to(device)
 
     ds = load()
     texts = ds["test"]["text"]
@@ -146,6 +154,7 @@ def main() -> None:
 
     metrics = {
         "model": {
+            "id": target,
             "base": BASE_MODEL,
             "architecture": "DistilBertForSequenceClassification",
             "num_labels": len(LABEL_NAMES),

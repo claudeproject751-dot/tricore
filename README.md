@@ -7,6 +7,16 @@ with the full distribution, not just the winner.
 A DistilBERT classifier fine-tuned on [`dair-ai/emotion`](https://huggingface.co/datasets/dair-ai/emotion),
 served by FastAPI, fronted by Next.js 14.
 
+| | |
+|---|---|
+| **Live app** | https://emotionsense-ochre.vercel.app |
+| **API** | https://emotionsense-api-452m.onrender.com |
+| **API docs** | https://emotionsense-api-452m.onrender.com/docs |
+
+> The API runs on Render's free tier and sleeps after ~15 minutes idle. The first
+> request afterwards takes 30–60s — the UI shows a "waking up the model" state
+> for exactly this reason rather than looking broken.
+
 ---
 
 ## Architecture
@@ -76,12 +86,32 @@ checkpoint selection.
 
 | model | test accuracy | test macro-F1 |
 |---|---|---|
-| TF-IDF + LogisticRegression (baseline) | **87.15%** | **0.8344** |
-| DistilBERT fine-tune | see `ml/artifacts/metrics.json` | see `metrics.json` |
+| TF-IDF + LogisticRegression (baseline) | 87.15% | 0.8344 |
+| DistilBERT (currently deployed) | **92.70%** | **0.8825** |
 
-The baseline numbers above are real, reproducible with
-`python ml/train_baseline.py`, and committed in
-`ml/artifacts/baseline_metrics.json`.
+The transformer beats the baseline by **+0.048 macro-F1**. Both numbers are
+measured, not quoted — reproduce them with:
+
+```bash
+python ml/train_baseline.py                                   # → baseline_metrics.json
+python ml/evaluate.py --model-dir <local-dir-or-hub-repo-id>  # → metrics.json
+```
+
+### Per class (test split)
+
+| label | precision | recall | F1 | support |
+|---|---|---|---|---|
+| sadness | 0.969 | 0.966 | 0.967 | 581 |
+| joy | 0.949 | 0.942 | 0.946 | 695 |
+| love | 0.804 | 0.849 | 0.826 | 159 |
+| anger | 0.927 | 0.920 | 0.923 | 275 |
+| fear | 0.876 | 0.915 | 0.895 | 224 |
+| surprise | 0.804 | **0.682** | 0.738 | 66 |
+
+`surprise` recall of 0.68 against 0.97 for `sadness` is the class imbalance
+showing up exactly where you'd expect it — 66 test examples versus 581. This is
+why the aggregate accuracy number alone is misleading, and why checkpoints are
+selected on macro-F1.
 
 > **Nothing in the UI hardcodes a metric.** The About page reads
 > `ml/artifacts/metrics.json`, falling back to the backend's `GET /api/model`.
