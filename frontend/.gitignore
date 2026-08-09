@@ -1,2 +1,7 @@
 .vercel
 .env*
+!.env.example
+
+# lib/generated/model-data.json is intentionally committed — deployments build
+# from this directory alone, so ml/artifacts/ is not in the build context and
+# the metrics could not be regenerated there.

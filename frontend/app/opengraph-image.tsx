@@ -4,8 +4,10 @@ export const alt = "EmotionSense — real-time emotion intelligence for text";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// See app/icon.tsx — kept out of the static prerender for Windows compatibility.
-export const dynamic = "force-dynamic";
+// Edge runtime: this is where @vercel/og is designed to run. It also keeps the
+// route out of the static prerender, whose Node path calls fileURLToPath on the
+// module URL and throws on Windows drive letters.
+export const runtime = "edge";
 
 const EMOTIONS = [
   { label: "joy", color: "#F5B942", height: 168 },

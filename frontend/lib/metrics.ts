@@ -1,38 +1,21 @@
 import "server-only";
 
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-
 import { modelInfo, type ModelMetrics } from "./api";
+// Generated at build time by scripts/sync-metrics.mjs from ml/artifacts/.
+// Imported (not read from disk) so it is bundled into the serverless output —
+// `ml/` sits outside the Next.js root and is not traced into the deployment.
+import bundled from "./generated/model-data.json";
 
 /**
  * Real metrics, never fabricated numbers.
  *
  * Resolution order:
- *   1. `ml/artifacts/metrics.json` in the repo — present once you've trained.
- *   2. `GET /api/model` on the live backend — covers deployments where the
- *      frontend and the artifacts aren't co-located.
- *   3. `null` — the UI then says the model hasn't been evaluated yet rather
- *      than inventing a number.
+ *   1. The bundled artifacts from `ml/artifacts/` — present once you've trained.
+ *   2. `GET /api/model` on the live backend — covers a frontend deployed
+ *      without the ml/ directory alongside it.
+ *   3. `null` — the UI then states the model hasn't been evaluated rather than
+ *      inventing a number.
  */
-
-const METRICS_PATH = path.join(process.cwd(), "..", "ml", "artifacts", "metrics.json");
-
-export async function getMetrics(): Promise<ModelMetrics | null> {
-  try {
-    const raw = await readFile(METRICS_PATH, "utf-8");
-    return JSON.parse(raw) as ModelMetrics;
-  } catch {
-    // Not trained yet, or the frontend is deployed without the ml/ directory.
-  }
-
-  try {
-    const info = await modelInfo();
-    return info.metrics;
-  } catch {
-    return null;
-  }
-}
 
 export type BaselineMetrics = {
   model: string;
@@ -42,35 +25,32 @@ export type BaselineMetrics = {
   >;
 };
 
-const BASELINE_PATH = path.join(process.cwd(), "..", "ml", "artifacts", "baseline_metrics.json");
-
-export async function getBaselineMetrics(): Promise<BaselineMetrics | null> {
-  try {
-    return JSON.parse(await readFile(BASELINE_PATH, "utf-8")) as BaselineMetrics;
-  } catch {
-    return null;
-  }
-}
-
 export type ClassDistribution = Record<
   string,
   { total: number; counts: Record<string, number>; percentages: Record<string, number> }
 >;
 
-const DISTRIBUTION_PATH = path.join(
-  process.cwd(),
-  "..",
-  "ml",
-  "artifacts",
-  "class_distribution.json",
-);
+export async function getMetrics(): Promise<ModelMetrics | null> {
+  if (bundled.metrics) {
+    return bundled.metrics as unknown as ModelMetrics;
+  }
 
-export async function getClassDistribution(): Promise<ClassDistribution | null> {
   try {
-    return JSON.parse(await readFile(DISTRIBUTION_PATH, "utf-8")) as ClassDistribution;
+    const info = await modelInfo();
+    return info.metrics;
   } catch {
+    // Backend asleep or unreachable at build time — fall through to null so the
+    // page renders honestly instead of failing.
     return null;
   }
+}
+
+export async function getBaselineMetrics(): Promise<BaselineMetrics | null> {
+  return (bundled.baseline as unknown as BaselineMetrics) ?? null;
+}
+
+export async function getClassDistribution(): Promise<ClassDistribution | null> {
+  return (bundled.distribution as unknown as ClassDistribution) ?? null;
 }
 
 /**
@@ -89,8 +69,7 @@ export function headlineStats(metrics: ModelMetrics | null) {
     f1: evaluation?.f1_macro ?? null,
     f1Label: evaluation ? evaluation.f1_macro.toFixed(3) : "—",
     baselineLabel: baseline ? `${(baseline.accuracy * 100).toFixed(1)}%` : "—",
-    baselineDelta:
-      evaluation && baseline ? evaluation.f1_macro - baseline.f1_macro : null,
+    baselineDelta: evaluation && baseline ? evaluation.f1_macro - baseline.f1_macro : null,
     trainRows: metrics?.dataset.splits.train ?? 16_000,
     testRows: metrics?.dataset.splits.test ?? 2_000,
     validationRows: metrics?.dataset.splits.validation ?? 2_000,

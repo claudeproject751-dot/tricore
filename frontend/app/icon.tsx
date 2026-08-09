@@ -3,10 +3,8 @@ import { ImageResponse } from "next/og";
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
-// Rendered on demand rather than at build time: @vercel/og's static prerender
-// path calls fileURLToPath on the module URL, which throws on Windows drive
-// letters. Vercel caches the result at the edge, so there's no real cost.
-export const dynamic = "force-dynamic";
+// See app/opengraph-image.tsx — @vercel/og runs on the edge.
+export const runtime = "edge";
 
 export default function Icon() {
   return new ImageResponse(
