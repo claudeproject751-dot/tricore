@@ -17,6 +17,28 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=86400" }
       ]
+    },
+    {
+      "source": "/docs/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "X-Frame-Options", "value": "ALLOWALL" }
+      ]
+    },
+    {
+      "source": "/docs/EmotionSense-Bangla-Guide.pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"EmotionSense-Bangla-Guide.pdf\""
+        }
+      ]
     }
+  ],
+  "redirects": [
+    { "source": "/bangla", "destination": "/docs/EmotionSense-Bangla-Guide.pdf", "permanent": false },
+    { "source": "/guide", "destination": "/docs/EmotionSense-Bangla-Guide.pdf", "permanent": false }
   ]
 }

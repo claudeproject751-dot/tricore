@@ -1,0 +1,1207 @@
+<meta charset="utf-8">
+<title>EmotionSense — সম্পূর্ণ বাংলা ব্যাখ্যা</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+
+  :root{
+    --ink:#111318; --body:#2b2f36; --muted:#5c6370; --line:#d8dce3;
+    --soft:#f6f7f9; --brand:#5b3df5; --warn:#b45309; --danger:#b91c1c; --ok:#0f766e;
+    --joy:#B07A0A; --sadness:#2F5DB0; --love:#B03A63; --anger:#B03235; --fear:#6D3FD1; --surprise:#0F766E;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{
+    font-family:"Nirmala UI","Noto Sans Bengali","Shonar Bangla","Vrinda",sans-serif;
+    color:var(--body); font-size:10.6pt; line-height:1.85; margin:0;
+    text-align:justify; text-justify:inter-word;
+  }
+  code,kbd,.mono{ font-family:"Consolas","Courier New",monospace; font-size:0.88em; }
+
+  h1,h2,h3,h4{ color:var(--ink); line-height:1.45; margin:0 0 .5em; font-weight:700; text-align:left; }
+  h1{ font-size:26pt; letter-spacing:-.4px; }
+  h2{
+    font-size:15.5pt; margin-top:1.9em; padding-top:.55em; border-top:2.5px solid var(--ink);
+    page-break-after:avoid; break-after:avoid;
+  }
+  h3{ font-size:12.3pt; margin-top:1.5em; color:#1d2129; page-break-after:avoid; break-after:avoid; }
+  h4{ font-size:11pt; margin-top:1.15em; color:#31363f; page-break-after:avoid; break-after:avoid; }
+  p{ margin:0 0 .85em; }
+  ul,ol{ margin:0 0 .9em; padding-left:1.35em; }
+  li{ margin-bottom:.42em; }
+  strong{ color:var(--ink); font-weight:700; }
+
+  /* ---------- cover ---------- */
+  .cover{ height:250mm; display:flex; flex-direction:column; justify-content:center; text-align:center; page-break-after:always; }
+  .cover .kicker{ color:var(--brand); font-weight:700; letter-spacing:2.5px; font-size:9.5pt; text-transform:uppercase; }
+  .cover h1{ text-align:center; font-size:35pt; margin:.35em 0 .18em; }
+  .cover .sub{ font-size:13.5pt; color:var(--muted); margin-bottom:2.2em; }
+  .swatches{ display:flex; gap:9px; justify-content:center; margin:1.6em 0 2.2em; }
+  .sw{ width:52px; height:9px; border-radius:5px; }
+  .cover .meta{ font-size:10pt; color:var(--muted); line-height:2.05; }
+
+  /* ---------- blocks ---------- */
+  .box{ border:1px solid var(--line); border-radius:9px; padding:13px 16px; margin:1.05em 0; background:var(--soft); page-break-inside:avoid; }
+  .box p:last-child, .box ul:last-child, .box ol:last-child{ margin-bottom:0; }
+  .box .t{ font-weight:700; color:var(--ink); display:block; margin-bottom:.4em; font-size:10.8pt; }
+  .warn{ background:#fffbeb; border-color:#fcd34d; }
+  .warn .t{ color:var(--warn); }
+  .danger{ background:#fef2f2; border-color:#fca5a5; }
+  .danger .t{ color:var(--danger); }
+  .ok{ background:#f0fdfa; border-color:#5eead4; }
+  .ok .t{ color:var(--ok); }
+  .key{ background:#f5f3ff; border-color:#c4b5fd; }
+  .key .t{ color:var(--brand); }
+
+  table{ width:100%; border-collapse:collapse; margin:1em 0; font-size:9.6pt; page-break-inside:avoid; }
+  th,td{ border:1px solid var(--line); padding:6px 9px; text-align:left; vertical-align:top; }
+  th{ background:#eef0f4; color:var(--ink); font-weight:700; }
+  tbody tr:nth-child(even){ background:#fafbfc; }
+  td.n,th.n{ text-align:right; font-family:"Consolas",monospace; }
+  .hl{ background:#fff7ed !important; }
+
+  pre{
+    background:#12151b; color:#e6e9ef; border-radius:8px; padding:11px 13px; overflow-x:auto;
+    font-family:"Consolas","Courier New",monospace; font-size:8.6pt; line-height:1.62;
+    page-break-inside:avoid; margin:.9em 0; text-align:left; white-space:pre-wrap; word-break:break-word;
+  }
+  pre .c{ color:#8b93a7; }
+  code:not(pre code){ background:#eef0f4; padding:1px 5px; border-radius:4px; color:#1d2129; }
+
+  .qa{ border-left:3.5px solid var(--brand); padding:2px 0 2px 13px; margin:1.15em 0; page-break-inside:avoid; }
+  .qa .q{ font-weight:700; color:var(--ink); margin-bottom:.35em; }
+  .qa .a{ margin:0; }
+
+  .term{ border-bottom:1px dotted var(--muted); }
+  .en{ color:var(--muted); font-size:.9em; }
+
+  .toc{ font-size:10.2pt; }
+  .toc ol{ padding-left:1.5em; }
+  .toc li{ margin-bottom:.3em; }
+
+  .pb{ page-break-before:always; }
+  .avoid{ page-break-inside:avoid; }
+  figure{ margin:1.1em 0; page-break-inside:avoid; }
+  figcaption{ font-size:9pt; color:var(--muted); margin-top:.45em; text-align:center; }
+
+  .flow{ font-family:"Consolas",monospace; font-size:8.4pt; line-height:1.5; background:#f6f7f9;
+         border:1px solid var(--line); border-radius:8px; padding:12px; white-space:pre; overflow-x:auto;
+         text-align:left; color:#1d2129; page-break-inside:avoid; }
+
+  .bar{ display:inline-block; height:8px; border-radius:4px; vertical-align:middle; }
+</style>
+
+<!-- ============================== COVER ============================== -->
+<div class="cover">
+  <div class="kicker">সম্পূর্ণ প্রকল্প ব্যাখ্যা</div>
+  <h1>EmotionSense</h1>
+  <div class="sub">টেক্সট থেকে আবেগ শনাক্তকরণ — একটি ফুল-স্ট্যাক মেশিন লার্নিং প্রকল্প</div>
+
+  <div class="swatches">
+    <span class="sw" style="background:#F5B942"></span>
+    <span class="sw" style="background:#4A7FE0"></span>
+    <span class="sw" style="background:#E85D8C"></span>
+    <span class="sw" style="background:#E5484D"></span>
+    <span class="sw" style="background:#8B5CF6"></span>
+    <span class="sw" style="background:#2DD4BF"></span>
+  </div>
+
+  <div class="meta">
+    <strong>বিষয়:</strong> Natural Language Processing · Text Classification<br>
+    <strong>মডেল:</strong> DistilBERT (Transformer) · ৬-শ্রেণির আবেগ শনাক্তকরণ<br>
+    <strong>ডেটাসেট:</strong> dair-ai/emotion — ২০,০০০ ইংরেজি বাক্য<br>
+    <strong>টেক-স্ট্যাক:</strong> PyTorch · FastAPI · Next.js 14 · Docker<br><br>
+    <strong>লাইভ অ্যাপ:</strong> emotionsense-ochre.vercel.app<br>
+    <strong>লাইভ API:</strong> emotionsense-api-452m.onrender.com<br>
+    <strong>সোর্স কোড:</strong> github.com/claudeproject751-dot/tricore
+  </div>
+</div>
+
+<!-- ============================== TOC ============================== -->
+<h2 style="margin-top:0;border-top:none;">সূচিপত্র</h2>
+<div class="toc">
+<ol>
+  <li><strong>এক নজরে প্রকল্প</strong> — কী বানানো হয়েছে এবং কেন</li>
+  <li><strong>অত্যন্ত জরুরি সতর্কতা</strong> — সুপারভাইজারকে যা অবশ্যই বলতে হবে</li>
+  <li><strong>মেশিন লার্নিং-এর মৌলিক ধারণা</strong> — একদম শূন্য থেকে</li>
+  <li><strong>ডেটাসেট</strong> — dair-ai/emotion বিস্তারিত</li>
+  <li><strong>টেক্সটকে সংখ্যায় রূপান্তর</strong> — Tokenization ও Embedding</li>
+  <li><strong>Transformer, BERT ও DistilBERT</strong> — মডেলের গঠন</li>
+  <li><strong>বেসলাইন মডেল</strong> — TF-IDF + Logistic Regression</li>
+  <li><strong>মূল ট্রেনিং: Fine-tuning</strong> — ধাপে ধাপে সম্পূর্ণ ব্যাখ্যা</li>
+  <li><strong>হাইপারপ্যারামিটার</strong> — প্রতিটির অর্থ ও যুক্তি</li>
+  <li><strong>মূল্যায়ন</strong> — Accuracy, Precision, Recall, F1</li>
+  <li><strong>ফলাফল বিশ্লেষণ</strong> — আসল সংখ্যা ও Confusion Matrix</li>
+  <li><strong>ব্যাকএন্ড</strong> — FastAPI ইনফারেন্স সার্ভিস</li>
+  <li><strong>ফ্রন্টএন্ড</strong> — Next.js ইউজার ইন্টারফেস</li>
+  <li><strong>ডিপ্লয়মেন্ট</strong> — Vercel, Render, Docker</li>
+  <li><strong>টেস্টিং ও CI</strong></li>
+  <li><strong>সীমাবদ্ধতা ও নৈতিক দিক</strong></li>
+  <li><strong>সুপারভাইজারের সম্ভাব্য প্রশ্ন ও উত্তর</strong> — ৪০+ প্রশ্ন</li>
+  <li><strong>পরিভাষা</strong> — ইংরেজি-বাংলা শব্দকোষ</li>
+</ol>
+</div>
+
+<!-- ============================== 1 ============================== -->
+<h2>১. এক নজরে প্রকল্প</h2>
+
+<h3>১.১ সমস্যাটি কী?</h3>
+<p>
+মানুষ যখন কিছু লেখে, সেই লেখার ভেতরে একটা <strong>আবেগ</strong> লুকিয়ে থাকে। "আজ আমার জন্মদিন, খুব ভালো লাগছে" — এটা আনন্দের। "সবাই চলে গেছে, একা লাগছে" — এটা দুঃখের। মানুষ সহজেই বুঝতে পারে, কিন্তু <strong>কম্পিউটারকে বোঝানো কঠিন</strong>, কারণ কম্পিউটার শব্দের অর্থ জানে না — সে শুধু সংখ্যা বোঝে।
+</p>
+<p>
+এই প্রকল্পের লক্ষ্য: একটি ইংরেজি বাক্য দিলে কম্পিউটার বলে দেবে সেটি ছয়টি আবেগের মধ্যে কোনটি প্রকাশ করছে — <strong>দুঃখ (sadness), আনন্দ (joy), ভালোবাসা (love), রাগ (anger), ভয় (fear), বিস্ময় (surprise)</strong>।
+</p>
+
+<h3>১.২ শুধু উত্তর নয়, আত্মবিশ্বাসও</h3>
+<p>
+সাধারণ শ্রেণিবিন্যাসকারী শুধু একটি উত্তর দেয় — "এটা আনন্দ"। কিন্তু এতে একটা বড় সমস্যা লুকিয়ে থাকে। মডেল যদি ৯৯% নিশ্চিত হয়ে "আনন্দ" বলে, আর ৩৫% নিশ্চিত হয়েও "আনন্দ" বলে — দুটোর মান এক নয়। কিন্তু বাইরে থেকে দুটোই একই রকম দেখায়।
+</p>
+<p>
+তাই এই সিস্টেম <strong>ছয়টি শ্রেণির প্রত্যেকটির সম্ভাবনা</strong> ফেরত দেয়, শুধু বিজয়ীটি নয়। ব্যবহারকারী দেখতে পান দ্বিতীয় স্থানে কে আছে এবং ব্যবধান কতটুকু। এটি একটি সচেতন ডিজাইন সিদ্ধান্ত — <strong>অনিশ্চয়তা লুকানো নয়, দেখানো</strong>।
+</p>
+
+<h3>১.৩ তিনটি স্তর</h3>
+<div class="flow">┌──────────────────────────────────────────────────────────┐
+│  স্তর ৩ — FRONTEND (Next.js 14, Vercel-এ হোস্ট করা)      │
+│  ব্যবহারকারী টাইপ করেন → চার্ট ও ফলাফল দেখেন            │
+└───────────────────────┬──────────────────────────────────┘
+                        │  HTTPS / JSON অনুরোধ
+                        ▼
+┌──────────────────────────────────────────────────────────┐
+│  স্তর ২ — BACKEND (FastAPI + Docker, Render-এ হোস্ট)     │
+│  টেক্সট গ্রহণ → মডেল চালানো → সম্ভাব্যতা ফেরত পাঠানো     │
+└───────────────────────┬──────────────────────────────────┘
+                        │  চালু হওয়ার সময় একবার লোড হয়
+                        ▼
+┌──────────────────────────────────────────────────────────┐
+│  স্তর ১ — MODEL (DistilBERT, Hugging Face Hub-এ রাখা)     │
+│  ৬,৬৯,৫৮,০৮৬টি প্যারামিটার — আগেই ট্রেন করা              │
+└──────────────────────────────────────────────────────────┘</div>
+
+<div class="box key">
+  <span class="t">মনে রাখার মতো মূল কথা</span>
+  <p>
+  ট্রেনিং হয় <strong>একবার, আলাদাভাবে (offline)</strong> — GPU-তে। ট্রেনিং শেষে মডেলটি একটি ফাইল হিসেবে সংরক্ষিত হয়। এরপর ব্যাকএন্ড শুধু সেই ফাইলটি লোড করে ব্যবহার করে। <strong>ব্যবহারকারী যখন টাইপ করেন তখন কোনো ট্রেনিং হয় না</strong> — শুধু <span class="term">ইনফারেন্স</span> <span class="en">(inference)</span> বা ভবিষ্যদ্বাণী হয়। এই পার্থক্যটা সুপারভাইজাররা প্রায়ই যাচাই করেন।
+  </p>
+</div>
+
+<!-- ============================== 2 ============================== -->
+<h2>২. অত্যন্ত জরুরি সতর্কতা — এটি আগে পড়ুন</h2>
+
+<div class="box danger">
+  <span class="t">⚠ বর্তমানে যে মডেলটি চলছে সেটি আপনার নিজের ট্রেন করা নয়</span>
+  <p>
+  এই মুহূর্তে লাইভ API যে মডেলটি ব্যবহার করছে তার নাম <code>bhadresh-savani/distilbert-base-uncased-emotion</code>। এটি Hugging Face-এ থাকা একটি <strong>পাবলিক মডেল</strong>, যা <strong>একই ডেটাসেট ও একই ছয়টি শ্রেণিতে</strong> অন্য কেউ ট্রেন করেছেন।
+  </p>
+  <p>
+  <strong>আপনার নিজস্ব ট্রেনিং এখনো চালানো হয়নি।</strong> ট্রেনিং-এর সম্পূর্ণ কোড ও নোটবুক তৈরি এবং প্রস্তুত আছে (<code>ml/notebooks/emotionsense_train_kaggle.ipynb</code>), শুধু Kaggle-এ চালানো বাকি — যা প্রায় ৬ মিনিটের কাজ।
+  </p>
+  <p>
+  <strong>সুপারভাইজারকে এটি স্পষ্টভাবে বলুন।</strong> "আমি DistilBERT ট্রেন করেছি" বলা এই মুহূর্তে সত্য নয় এবং এটি ধরা পড়লে পুরো কাজের বিশ্বাসযোগ্যতা নষ্ট হবে। সঠিক বাক্য হলো: <em>"সম্পূর্ণ ট্রেনিং পাইপলাইন আমি তৈরি করেছি এবং বেসলাইন মডেল নিজে ট্রেন করেছি; ট্রান্সফরমার ফাইন-টিউনিং-এর জন্য আপাতত একই ডেটাসেটে ট্রেন করা একটি পাবলিক মডেল ব্যবহার করছি, নিজের ফাইন-টিউন চালানো বাকি।"</em>
+  </p>
+</div>
+
+<h3>২.১ কোনটা আপনি নিজে করেছেন, কোনটা করেননি</h3>
+<table>
+  <thead><tr><th>অংশ</th><th>অবস্থা</th><th>প্রমাণ</th></tr></thead>
+  <tbody>
+    <tr><td>ডেটা বিশ্লেষণ ও শ্রেণি-বণ্টন</td><td>✅ নিজে চালানো</td><td><code>class_distribution.json</code></td></tr>
+    <tr><td>বেসলাইন মডেল ট্রেনিং (TF-IDF)</td><td>✅ <strong>নিজে ট্রেন করা</strong></td><td><code>baseline_metrics.json</code> — ৮৭.১৫%</td></tr>
+    <tr><td>ট্রান্সফরমার ট্রেনিং কোড</td><td>✅ নিজে লেখা</td><td><code>train_transformer.py</code>, Kaggle নোটবুক</td></tr>
+    <tr class="hl"><td>ট্রান্সফরমার আসলে ট্রেন করা</td><td>❌ <strong>এখনো চালানো হয়নি</strong></td><td>—</td></tr>
+    <tr><td>ডিপ্লয় করা মডেলের মূল্যায়ন</td><td>✅ নিজে চালানো</td><td><code>metrics.json</code> — ৯২.৭%</td></tr>
+    <tr><td>ব্যাকএন্ড API</td><td>✅ নিজে তৈরি</td><td>৪০টি টেস্ট পাস</td></tr>
+    <tr><td>ফ্রন্টএন্ড</td><td>✅ নিজে তৈরি</td><td>১৮টি টেস্ট পাস</td></tr>
+    <tr><td>ডিপ্লয়মেন্ট</td><td>✅ নিজে করা</td><td>লাইভ URL</td></tr>
+  </tbody>
+</table>
+
+<p>
+<strong>ভালো খবর:</strong> ৯২.৭% যে সংখ্যাটি অ্যাপে দেখাচ্ছে, সেটি <strong>আপনি নিজে পরিমাপ করেছেন</strong> — টেস্ট সেটে ওই মডেলটি চালিয়ে। সংখ্যাটি কোথাও থেকে কপি করা নয়। এটাও একটি বৈধ ও মূল্যবান কাজ, যাকে বলে <span class="term">মডেল মূল্যায়ন</span> <span class="en">(model evaluation)</span>।
+</p>
+
+<!-- ============================== 3 ============================== -->
+<h2 class="pb">৩. মেশিন লার্নিং-এর মৌলিক ধারণা</h2>
+
+<h3>৩.১ প্রোগ্রামিং বনাম মেশিন লার্নিং</h3>
+<p>
+সাধারণ প্রোগ্রামিং-এ আমরা <strong>নিয়ম</strong> লিখি: "যদি বাক্যে 'happy' শব্দ থাকে, তবে আনন্দ"। কিন্তু ভাষা এত সরল নয় — "I am not happy at all" বাক্যে 'happy' আছে, তবু এটি আনন্দ নয়। হাজার হাজার নিয়ম লিখেও ভাষা ঢাকা যায় না।
+</p>
+<p>
+মেশিন লার্নিং উল্টো পথে হাঁটে। আমরা নিয়ম লিখি না — বরং <strong>বহু উদাহরণ</strong> দেখাই, আর যন্ত্র নিজে নিয়মগুলো খুঁজে বের করে।
+</p>
+
+<div class="flow">সাধারণ প্রোগ্রামিং:      নিয়ম  +  ডেটা      →  উত্তর
+মেশিন লার্নিং:          ডেটা  +  উত্তর     →  নিয়ম  (মডেল)</div>
+
+<p>
+আমাদের ক্ষেত্রে: ১৬,০০০টি বাক্য এবং প্রত্যেকটির সঠিক আবেগ যন্ত্রকে দেখানো হয়। যন্ত্র ধীরে ধীরে নিজেই ধরন <span class="en">(pattern)</span> শিখে নেয়।
+</p>
+
+<h3>৩.২ সুপারভাইজড লার্নিং</h3>
+<p>
+আমাদের প্রতিটি উদাহরণের সাথে <strong>সঠিক উত্তর</strong> দেওয়া আছে। যেমন:
+</p>
+<table>
+  <thead><tr><th>ইনপুট (X) — বাক্য</th><th>লেবেল (y) — সঠিক উত্তর</th></tr></thead>
+  <tbody>
+    <tr><td>i didnt feel humiliated</td><td>০ = sadness</td></tr>
+    <tr><td>im grabbing a minute to post i feel greedy wrong</td><td>৩ = anger</td></tr>
+    <tr><td>i am feeling grouchy</td><td>৩ = anger</td></tr>
+  </tbody>
+</table>
+<p>
+সঠিক উত্তর সহ শেখানোকে বলে <strong>সুপারভাইজড লার্নিং</strong> <span class="en">(supervised learning)</span> — যেন একজন শিক্ষক পাশে বসে প্রতিবার বলে দিচ্ছেন উত্তরটা ঠিক হলো কি না।
+</p>
+<p>
+যেহেতু উত্তরগুলো নির্দিষ্ট কয়েকটি ভাগে (৬টি) সীমাবদ্ধ — কোনো সংখ্যা নয় — একে বলে <strong>ক্লাসিফিকেশন</strong> <span class="en">(classification)</span>। আরও নির্দিষ্টভাবে <strong>multi-class, single-label</strong>: ছয়টি শ্রেণি আছে, কিন্তু প্রতিটি বাক্য ঠিক একটিতেই পড়বে।
+</p>
+
+<h3>৩.৩ ডেটা তিন ভাগে ভাগ করা — কেন এটি অপরিহার্য</h3>
+<p>
+এটি পুরো প্রকল্পের সবচেয়ে গুরুত্বপূর্ণ ধারণাগুলোর একটি, এবং সুপারভাইজার প্রায় নিশ্চিতভাবে এটি জিজ্ঞেস করবেন।
+</p>
+<table>
+  <thead><tr><th>ভাগ</th><th class="n">পরিমাণ</th><th>কাজ</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Train</strong> (প্রশিক্ষণ)</td><td class="n">১৬,০০০</td><td>মডেল এখান থেকে শেখে — এর উপরেই ওজন সমন্বয় হয়</td></tr>
+    <tr><td><strong>Validation</strong> (যাচাই)</td><td class="n">২,০০০</td><td>ট্রেনিং চলাকালে কোন সংস্করণটি সেরা তা বাছাই করতে</td></tr>
+    <tr><td><strong>Test</strong> (পরীক্ষা)</td><td class="n">২,০০০</td><td>একদম শেষে, একবার — চূড়ান্ত ফলাফল ঘোষণার জন্য</td></tr>
+  </tbody>
+</table>
+
+<div class="box">
+  <span class="t">পরীক্ষার হলের উপমা</span>
+  <ul>
+    <li><strong>Train</strong> = পাঠ্যবই ও অনুশীলনী। শিক্ষার্থী বারবার পড়ে ও অনুশীলন করে।</li>
+    <li><strong>Validation</strong> = মডেল টেস্ট। কোন পড়ার কৌশলটি ভালো কাজ করছে তা বোঝার জন্য।</li>
+    <li><strong>Test</strong> = চূড়ান্ত পরীক্ষা। প্রশ্নপত্র <strong>কখনোই</strong> আগে দেখা হয়নি।</li>
+  </ul>
+  <p style="margin-top:.6em">
+  পরীক্ষার প্রশ্ন আগে দেখে ফেললে ১০০% পাওয়া সহজ — কিন্তু সেই নম্বর দিয়ে বোঝা যায় না শিক্ষার্থী আসলে কতটুকু শিখেছে। ঠিক এই কারণেই <strong>টেস্ট সেট ট্রেনিং-এর সময় কখনো স্পর্শ করা হয় না</strong>।
+  </p>
+</div>
+
+<h3>৩.৪ ওভারফিটিং — সবচেয়ে বড় বিপদ</h3>
+<p>
+<strong>ওভারফিটিং</strong> <span class="en">(overfitting)</span> হলো মডেলের ট্রেনিং ডেটা <strong>মুখস্থ</strong> করে ফেলা, বোঝার বদলে। এমন মডেল ট্রেনিং সেটে ৯৯% পায়, কিন্তু নতুন বাক্যে ভয়াবহ ফল করে।
+</p>
+<p>
+যেভাবে বুঝবেন: ট্রেনিং-এর স্কোর বাড়ছে কিন্তু ভ্যালিডেশনের স্কোর <strong>কমছে</strong> — এটিই ওভারফিটিং শুরুর লক্ষণ।
+</p>
+<p>এই প্রকল্পে চারটি প্রতিরোধ ব্যবস্থা নেওয়া হয়েছে:</p>
+<ol>
+  <li><strong>প্রতি epoch-এ ভ্যালিডেশন যাচাই</strong> — সমস্যা শুরু হলেই ধরা পড়ে।</li>
+  <li><strong>সেরা চেকপয়েন্ট নির্বাচন</strong> (<code>load_best_model_at_end=True</code>) — শেষেরটি নয়, সবচেয়ে ভালোটি রাখা হয়।</li>
+  <li><strong>Weight decay = 0.01</strong> — ওজনগুলোকে অতিরিক্ত বড় হতে দেয় না।</li>
+  <li><strong>অল্প epoch (৫)</strong> — ফাইন-টিউনিং-এ বেশি epoch মানেই বেশি মুখস্থ।</li>
+</ol>
+
+<!-- ============================== 4 ============================== -->
+<h2>৪. ডেটাসেট — dair-ai/emotion</h2>
+
+<h3>৪.১ পরিচিতি</h3>
+<table>
+  <tbody>
+    <tr><th style="width:32%">নাম</th><td>dair-ai/emotion (<code>split</code> কনফিগ)</td></tr>
+    <tr><th>উৎস গবেষণা</th><td>Saravia et al., <em>"CARER: Contextualized Affect Representations for Emotion Recognition"</em>, EMNLP 2018</td></tr>
+    <tr><th>ধরন</th><td>ইংরেজি টুইট, প্রতিটিতে একটি করে আবেগের লেবেল</td></tr>
+    <tr><th>মোট আকার</th><td>২০,০০০ বাক্য (১৬,০০০ + ২,০০০ + ২,০০০)</td></tr>
+    <tr><th>শ্রেণি</th><td>০=sadness, ১=joy, ২=love, ৩=anger, ৪=fear, ৫=surprise</td></tr>
+    <tr><th>লাইসেন্স</th><td>গবেষণা ও শিক্ষামূলক ব্যবহারের জন্য</td></tr>
+  </tbody>
+</table>
+
+<h3>৪.২ শ্রেণি-বণ্টন — এবং এর গুরুতর প্রভাব</h3>
+<p>ট্রেনিং সেটের প্রকৃত হিসাব (আমাদের নিজের চালানো বিশ্লেষণ থেকে):</p>
+<table>
+  <thead><tr><th>আবেগ</th><th class="n">সংখ্যা</th><th class="n">শতাংশ</th><th style="width:34%">দৃশ্যমান তুলনা</th></tr></thead>
+  <tbody>
+    <tr><td style="color:#B07A0A"><strong>joy</strong> (আনন্দ)</td><td class="n">৫,৩৬২</td><td class="n">৩৩.৫১%</td><td><span class="bar" style="width:100%;background:#F5B942"></span></td></tr>
+    <tr><td style="color:#2F5DB0"><strong>sadness</strong> (দুঃখ)</td><td class="n">৪,৬৬৬</td><td class="n">২৯.১৬%</td><td><span class="bar" style="width:87%;background:#4A7FE0"></span></td></tr>
+    <tr><td style="color:#B03235"><strong>anger</strong> (রাগ)</td><td class="n">২,১৫৯</td><td class="n">১৩.৪৯%</td><td><span class="bar" style="width:40%;background:#E5484D"></span></td></tr>
+    <tr><td style="color:#6D3FD1"><strong>fear</strong> (ভয়)</td><td class="n">১,৯৩৭</td><td class="n">১২.১১%</td><td><span class="bar" style="width:36%;background:#8B5CF6"></span></td></tr>
+    <tr><td style="color:#B03A63"><strong>love</strong> (ভালোবাসা)</td><td class="n">১,৩০৪</td><td class="n">৮.১৫%</td><td><span class="bar" style="width:24%;background:#E85D8C"></span></td></tr>
+    <tr class="hl"><td style="color:#0F766E"><strong>surprise</strong> (বিস্ময়)</td><td class="n">৫৭২</td><td class="n">৩.৫৮%</td><td><span class="bar" style="width:11%;background:#2DD4BF"></span></td></tr>
+  </tbody>
+</table>
+
+<div class="box warn">
+  <span class="t">শ্রেণি ভারসাম্যহীনতা (Class Imbalance) — ৯.৪ গুণ</span>
+  <p>
+  সবচেয়ে বেশি (joy ৩৩.৫১%) আর সবচেয়ে কম (surprise ৩.৫৮%) শ্রেণির অনুপাত <strong>৯.৪ গুণ</strong>। এর ভয়ানক পরিণতি একটি উদাহরণে বোঝা যায়:
+  </p>
+  <p>
+  ধরুন একটি "বোকা" মডেল বানালাম যেটি <strong>সবকিছুকেই joy বলে</strong> — কোনো শেখা ছাড়াই। সে ৩৩.৫% accuracy পাবে। আরও চতুর হয়ে যদি শুধু joy আর sadness-এর মধ্যে বাছাই করে, ৬২% পর্যন্ত যেতে পারে — <strong>surprise শ্রেণিটি সম্পূর্ণ উপেক্ষা করেও</strong>।
+  </p>
+  <p>
+  অর্থাৎ <strong>শুধু accuracy দেখে মডেলের মান বিচার করা বিপজ্জনক</strong>। এই কারণেই এই প্রকল্পে সেরা মডেল বাছাই করা হয় <strong>macro-F1</strong> দিয়ে, accuracy দিয়ে নয়। কেন — তা ১০ নং অধ্যায়ে ব্যাখ্যা করা আছে।
+  </p>
+</div>
+
+<h3>৪.৩ ডেটা পরিষ্কারকরণ — যা করা হয়নি এবং কেন</h3>
+<p>
+ডেটাসেটটি আগে থেকেই ছোট হাতের অক্ষরে <span class="en">(lowercase)</span> রূপান্তরিত এবং যতিচিহ্নমুক্ত। তাই ভারী পরিষ্কারকরণের প্রয়োজন নেই — শুধু সামনে-পেছনের বাড়তি ফাঁকা জায়গা <span class="en">(whitespace)</span> সরানো হয়েছে।
+</p>
+<p>
+<strong>ইচ্ছাকৃতভাবে যা করা হয়নি:</strong> stopword মুছে ফেলা হয়নি। কারণ "i", "not", "am" — এই শব্দগুলোই আবেগের জন্য অত্যন্ত গুরুত্বপূর্ণ। "I am not happy" থেকে "not" সরালে অর্থ সম্পূর্ণ উল্টে যায়। ঐতিহ্যগত টেক্সট প্রসেসিং-এ stopword সরানো হয়, কিন্তু আবেগ শনাক্তকরণে সেটি ক্ষতিকর।
+</p>
+
+<!-- ============================== 5 ============================== -->
+<h2 class="pb">৫. টেক্সটকে সংখ্যায় রূপান্তর</h2>
+
+<p>
+নিউরাল নেটওয়ার্ক শুধু সংখ্যা নিয়ে কাজ করে। তাই "i feel happy" বাক্যটিকে সংখ্যায় রূপান্তর করতে হবে। এটি দুই ধাপে হয়।
+</p>
+
+<h3>৫.১ ধাপ ১ — টোকেনাইজেশন</h3>
+<p>
+<strong>টোকেনাইজেশন</strong> <span class="en">(tokenization)</span> মানে বাক্যকে ছোট ছোট টুকরায় ভাগ করা এবং প্রতিটি টুকরাকে একটি সংখ্যা (ID) দেওয়া।
+</p>
+<p>
+DistilBERT ব্যবহার করে <strong>WordPiece</strong> পদ্ধতি — এটি শব্দের চেয়েও ছোট অংশে ভাঙতে পারে। এর সুবিধা হলো <strong>অজানা শব্দের সমস্যা</strong> <span class="en">(out-of-vocabulary)</span> দূর হয়।
+</p>
+
+<div class="flow">মূল বাক্য:   "i feel unbelievably happy"
+
+শব্দে ভাঙা:  [i] [feel] [unbelievably] [happy]
+             ↑ "unbelievably" অভিধানে না থাকলে সমস্যা!
+
+WordPiece:   [i] [feel] [un] [##bel] [##ie] [##va] [##bly] [happy]
+             ↑ চেনা টুকরায় ভেঙে ফেলে — কোনো শব্দই অজানা থাকে না
+             (## চিহ্ন মানে এটি আগের টুকরার সাথে জোড়া)
+
+ID-তে রূপান্তর:
+[CLS]  i     feel   un    ##bel  ##ie  ##va  ##bly  happy  [SEP]
+ 101   1045  2514   4895  8671   2666  3567  6321   3407   102</div>
+
+<p>দুটি বিশেষ টোকেন যোগ হয়:</p>
+<ul>
+  <li><strong><code>[CLS]</code></strong> — শুরুতে বসে। ট্রেনিং শেষে এই টোকেনের ভেক্টরটি <strong>পুরো বাক্যের সারসংক্ষেপ</strong> ধারণ করে। শ্রেণিবিন্যাসের সিদ্ধান্ত এই একটি ভেক্টর থেকেই নেওয়া হয় — এটি খুব গুরুত্বপূর্ণ, মনে রাখুন।</li>
+  <li><strong><code>[SEP]</code></strong> — শেষে বসে, বাক্যের সমাপ্তি বোঝায়।</li>
+</ul>
+
+<h4>max_length = 96 কেন?</h4>
+<p>
+সব বাক্যের দৈর্ঘ্য সমান নয়, কিন্তু নিউরাল নেটওয়ার্কে একসাথে প্রক্রিয়াকরণের জন্য সমান দৈর্ঘ্য দরকার। আমরা সর্বোচ্চ ৯৬ টোকেন ধরেছি। আমাদের বিশ্লেষণে দেখা গেছে ট্রেনিং বাক্যের গড় দৈর্ঘ্য মাত্র ~১৯ শব্দ, এবং ৯৯% বাক্যই ৯৬ টোকেনের নিচে। অর্থাৎ প্রায় কোনো তথ্যই কাটা পড়ছে না, অথচ হিসাব অনেক দ্রুত হচ্ছে।
+</p>
+
+<div class="box ok">
+  <span class="t">Dynamic Padding — একটি কার্যকর কৌশল</span>
+  <p>
+  সব বাক্যকে ৯৬-এ টেনে লম্বা করলে বিপুল অপচয় হয় — ২০ টোকেনের বাক্যে ৭৬টি অর্থহীন শূন্য যোগ হয়। তাই ব্যবহার করা হয়েছে <code>DataCollatorWithPadding</code>, যা <strong>প্রতিটি ব্যাচে সেই ব্যাচের সবচেয়ে লম্বা বাক্য পর্যন্ত</strong> padding দেয়।
+  </p>
+  <p>
+  ফলাফল: ট্রেনিং প্রায় <strong>দ্বিগুণ দ্রুত</strong>, কোনো নির্ভুলতা না হারিয়ে। এটি সুপারভাইজারকে বলার মতো একটি ভালো অপ্টিমাইজেশন।
+  </p>
+</div>
+
+<h3>৫.২ ধাপ ২ — এমবেডিং</h3>
+<p>
+ID শুধু একটি নম্বর, এর কোনো অর্থ নেই — "happy" যদি ৩৪০৭ হয় আর "sad" যদি ৬২৭৪, তার মানে এই নয় যে sad, happy-এর চেয়ে বড়।
+</p>
+<p>
+তাই প্রতিটি ID-কে একটি <strong>ভেক্টর</strong>-এ রূপান্তর করা হয় — DistilBERT-এ ৭৬৮টি সংখ্যার একটি তালিকা। একেই বলে <strong>এমবেডিং</strong> <span class="en">(embedding)</span>।
+</p>
+<p>
+এই ৭৬৮টি সংখ্যা শব্দের <strong>অর্থ</strong> ধারণ করে। জাদুটা হলো — <strong>কাছাকাছি অর্থের শব্দ কাছাকাছি ভেক্টর পায়</strong>। "happy" আর "joyful"-এর ভেক্টর প্রায় একই দিকে নির্দেশ করে, কিন্তু "angry"-র ভেক্টর অন্য দিকে। মডেল এই সম্পর্কগুলো ট্রেনিং থেকেই শিখেছে, কেউ হাতে লিখে দেয়নি।
+</p>
+
+<!-- ============================== 6 ============================== -->
+<h2>৬. Transformer, BERT ও DistilBERT</h2>
+
+<h3>৬.১ Attention — মূল ধারণা</h3>
+<p>
+২০১৭ সালের <em>"Attention Is All You Need"</em> গবেষণাপত্রে Transformer স্থাপত্য প্রস্তাব করা হয়। এর প্রাণভোমরা হলো <strong>self-attention</strong>।
+</p>
+<p>
+মূল ধারণাটি সরল: <strong>একটি শব্দের অর্থ নির্ভর করে বাক্যের অন্য কোন শব্দগুলোর উপর</strong> — এবং মডেল নিজেই ঠিক করে নেয় কোন শব্দের দিকে কতটা "মনোযোগ" দেবে।
+</p>
+
+<div class="flow">বাক্য:  "I am not happy about this"
+
+"happy" শব্দটি প্রক্রিয়াকরণের সময় মডেলের মনোযোগ বণ্টন:
+
+   I        ▓░░░░░░░░░  ৫%
+   am       ▓░░░░░░░░░  ৫%
+   not      ▓▓▓▓▓▓▓▓░░  ৬০%   ◄── সবচেয়ে বেশি মনোযোগ!
+   happy    ▓▓▓░░░░░░░  ২০%
+   about    ▓░░░░░░░░░  ৫%
+   this     ▓░░░░░░░░░  ৫%
+
+ফলে মডেল বোঝে: এখানে "happy" আসলে ইতিবাচক নয়,
+কারণ ঠিক আগেই "not" আছে।</div>
+
+<p>
+পুরনো পদ্ধতি (যেমন TF-IDF) শুধু গোনে কোন শব্দ কতবার আছে — "not" আর "happy" যে পাশাপাশি, সেটি ধরতে পারে না। এখানেই Transformer-এর মূল শ্রেষ্ঠত্ব।
+</p>
+<p>
+"Multi-head attention" মানে একসাথে অনেকগুলো (DistilBERT-এ ১২টি) ভিন্ন দৃষ্টিকোণ থেকে মনোযোগ দেওয়া — একটি head হয়তো ব্যাকরণ দেখে, আরেকটি আবেগ দেখে।
+</p>
+
+<h3>৬.২ BERT এবং প্রি-ট্রেনিং</h3>
+<p>
+BERT (Bidirectional Encoder Representations from Transformers) গুগলের তৈরি। এর বিশেষত্ব হলো এটি বাক্য <strong>দুই দিক থেকেই</strong> পড়ে — বাম থেকে ডান এবং ডান থেকে বাম একসাথে।
+</p>
+<p>
+BERT-কে প্রথমে বিপুল পরিমাণ সাধারণ টেক্সটে (সম্পূর্ণ Wikipedia + হাজারো বই, প্রায় ৩৩০ কোটি শব্দ) ট্রেন করা হয়েছে একটি চতুর কাজ দিয়ে — <strong>Masked Language Modeling</strong>:
+</p>
+
+<div class="flow">ইনপুট:   "The cat sat on the [MASK]"
+কাজ:     [MASK] জায়গায় কোন শব্দ হবে অনুমান করো
+উত্তর:   "mat"
+
+এভাবে কোটি কোটি বাক্যে অনুশীলন করতে করতে মডেল শিখে ফেলে:
+  • ব্যাকরণ ও বাক্যগঠন
+  • শব্দের অর্থ ও পারস্পরিক সম্পর্ক
+  • সাধারণ জ্ঞান ও প্রেক্ষাপট</div>
+
+<p>
+এর বিশাল সুবিধা: এই ট্রেনিং-এ <strong>কোনো মানুষের লেবেল লাগে না</strong> — বাক্য থেকেই শব্দ লুকিয়ে দিলেই হলো। একে বলে <strong>self-supervised learning</strong>। এই পর্যায়টিকে বলে <strong>প্রি-ট্রেনিং</strong> <span class="en">(pre-training)</span>, যা গুগল করেছে, আমরা নয় — এতে লক্ষ লক্ষ টাকার GPU সময় লাগে।
+</p>
+
+<h3>৬.৩ DistilBERT — ছোট, দ্রুত, প্রায় সমান ভালো</h3>
+<p>
+BERT-base-এ ১১ কোটি প্যারামিটার — যা ফ্রি হোস্টিং-এ চালানো ব্যয়বহুল ও ধীর। <strong>DistilBERT</strong> হলো BERT-এর একটি সংকুচিত সংস্করণ, যা <strong>Knowledge Distillation</strong> পদ্ধতিতে তৈরি।
+</p>
+<p>
+পদ্ধতিটি অনেকটা শিক্ষক-ছাত্রের মতো: বড় BERT ("শিক্ষক") যে উত্তর দেয়, ছোট মডেল ("ছাত্র") সেই উত্তর <em>এবং শিক্ষকের আত্মবিশ্বাসের ধরনটিও</em> নকল করতে শেখে। শুধু সঠিক উত্তর নয়, শিক্ষক কতটা দ্বিধায় ছিল সেটিও শেখে — এতে অনেক বেশি তথ্য পাওয়া যায়।
+</p>
+
+<table>
+  <thead><tr><th>বৈশিষ্ট্য</th><th class="n">BERT-base</th><th class="n">DistilBERT</th></tr></thead>
+  <tbody>
+    <tr><td>Transformer স্তর</td><td class="n">১২</td><td class="n">৬</td></tr>
+    <tr><td>প্যারামিটার</td><td class="n">১১ কোটি</td><td class="n">৬.৭ কোটি</td></tr>
+    <tr><td>আকার</td><td class="n">~৪৪০ MB</td><td class="n">~২৬৫ MB</td></tr>
+    <tr><td>গতি</td><td class="n">১×</td><td class="n">~১.৬× দ্রুত</td></tr>
+    <tr><td>কর্মদক্ষতা ধরে রাখে</td><td class="n">১০০%</td><td class="n">~৯৭%</td></tr>
+  </tbody>
+</table>
+
+<p>
+<strong>কেন এটি বেছে নেওয়া হলো:</strong> ফ্রি হোস্টিং-এ RAM মাত্র ৫১২ MB এবং কোনো GPU নেই। BERT-base সেখানে চলবে না বা অসহনীয় ধীর হবে। DistilBERT ৩% নির্ভুলতা ছেড়ে দিয়ে ৪০% আকার ও ৬০% সময় বাঁচায় — এটি একটি <strong>সচেতন প্রকৌশল সমঝোতা</strong> <span class="en">(engineering trade-off)</span>, যা সুপারভাইজারকে ব্যাখ্যা করার মতো।
+</p>
+
+<!-- ============================== 7 ============================== -->
+<h2 class="pb">৭. বেসলাইন মডেল — TF-IDF + Logistic Regression</h2>
+
+<h3>৭.১ বেসলাইন কেন দরকার?</h3>
+<p>
+সরাসরি DistilBERT ট্রেন করে ৯২% পেলে সেটি শুনতে দারুণ। কিন্তু একটি প্রশ্ন থেকে যায় — <strong>একটি অতি সাধারণ পদ্ধতি কত পেত?</strong> যদি সাধারণ পদ্ধতিও ৯১% পায়, তবে বিশাল ট্রান্সফরমারের পেছনে খরচ ও জটিলতা ন্যায্য নয়।
+</p>
+<p>
+<strong>বেসলাইন</strong> হলো সেই তুলনার মানদণ্ড। এটি গবেষণা-পদ্ধতির একটি মৌলিক অংশ, এবং <strong>এটি আপনি নিজে ট্রেন করেছেন</strong>।
+</p>
+
+<h3>৭.২ TF-IDF কী?</h3>
+<p>TF-IDF (Term Frequency – Inverse Document Frequency) প্রতিটি শব্দের গুরুত্ব মাপে দুটি বিষয় বিবেচনা করে:</p>
+<ul>
+  <li><strong>TF</strong> — এই বাক্যে শব্দটি কতবার আছে? বেশি থাকলে বেশি গুরুত্বপূর্ণ।</li>
+  <li><strong>IDF</strong> — শব্দটি <em>সব</em> বাক্যে কতটা সাধারণ? "the" সবখানে আছে, তাই এর গুরুত্ব কম। "furious" বিরল, তাই এটি পাওয়া গেলে সেটি অনেক তথ্যবহুল।</li>
+</ul>
+<p>
+আমরা ব্যবহার করেছি <code>ngram_range=(1,2)</code> — অর্থাৎ একক শব্দ <em>এবং</em> পাশাপাশি দুই শব্দের জোড়াও গোনা হয়। এতে "not happy" জোড়াটি একটি আলাদা বৈশিষ্ট্য হিসেবে ধরা পড়ে, যা কিছুটা প্রেক্ষাপট রক্ষা করে। সর্বোচ্চ ২০,০০০টি বৈশিষ্ট্য রাখা হয়েছে।
+</p>
+
+<h3>৭.৩ ফলাফল (নিজে চালানো)</h3>
+<table>
+  <thead><tr><th>ডেটা ভাগ</th><th class="n">Accuracy</th><th class="n">Macro-F1</th></tr></thead>
+  <tbody>
+    <tr><td>Validation</td><td class="n">৮৭.৯০%</td><td class="n">০.৮৫১০</td></tr>
+    <tr><td><strong>Test</strong></td><td class="n"><strong>৮৭.১৫%</strong></td><td class="n"><strong>০.৮৩৪৪</strong></td></tr>
+  </tbody>
+</table>
+<p>
+ট্রেনিং সময় মাত্র <strong>১৫.৩ সেকেন্ড</strong> — সাধারণ ল্যাপটপের CPU-তে। তুলনায় DistilBERT ফাইন-টিউনিং-এ GPU-তে ~৬ মিনিট, CPU-তে ~৪৫ মিনিট লাগে।
+</p>
+
+<div class="box key">
+  <span class="t">বেসলাইনের দ্বিতীয় ব্যবহার — একটি স্মার্ট ডিজাইন</span>
+  <p>
+  বেসলাইন মডেলটি ফেলে দেওয়া হয়নি। এটি ব্যাকএন্ডে <strong>বিকল্প ব্যবস্থা</strong> <span class="en">(fallback)</span> হিসেবে রাখা আছে। যদি কোনো কারণে বড় ট্রান্সফরমার মডেল লোড না হয় (ইন্টারনেট সমস্যা, মেমরি সংকট, ভুল ঠিকানা), API সম্পূর্ণ বন্ধ না হয়ে বেসলাইন দিয়ে উত্তর দেওয়া চালিয়ে যায় — এবং প্রতিটি উত্তরে <code>model_source: "baseline"</code> লিখে <strong>সৎভাবে জানিয়ে দেয়</strong> যে এটি দুর্বল মডেলের ফলাফল।
+  </p>
+  <p>একে বলে <strong>graceful degradation</strong> — সম্পূর্ণ বিকল হওয়ার চেয়ে সীমিত সেবা ভালো।</p>
+</div>
+
+<!-- ============================== 8 ============================== -->
+<h2>৮. মূল ট্রেনিং — Fine-tuning (সবচেয়ে গুরুত্বপূর্ণ অধ্যায়)</h2>
+
+<h3>৮.১ Transfer Learning ও Fine-tuning কী?</h3>
+<p>
+আমরা DistilBERT-কে <strong>শূন্য থেকে</strong> ট্রেন করি না। সেটি করতে কোটি টাকার হার্ডওয়্যার আর সপ্তাহের পর সপ্তাহ লাগত।
+</p>
+<p>
+বরং আমরা গুগলের <strong>আগে থেকে ট্রেন করা</strong> মডেল নিই — যেটি ইতিমধ্যে ইংরেজি ভাষা জানে — এবং কেবল আমাদের নির্দিষ্ট কাজের জন্য সামান্য সমন্বয় করি। একেই বলে <strong>Transfer Learning</strong>, আর সমন্বয়ের প্রক্রিয়াটিকে বলে <strong>Fine-tuning</strong>।
+</p>
+
+<div class="box">
+  <span class="t">উপমা</span>
+  <p>
+  একজন মানুষ ইতিমধ্যে বাংলা ভাষা জানেন (= প্রি-ট্রেনিং, বহু বছরের)। এখন তাঁকে "চিকিৎসা রিপোর্ট পড়া" শেখাতে হলে আবার প্রথম থেকে ভাষা শেখাতে হবে না — কয়েক সপ্তাহের বিশেষ প্রশিক্ষণই যথেষ্ট (= ফাইন-টিউনিং)।
+  </p>
+</div>
+
+<h3>৮.২ স্থাপত্য পরিবর্তন — Classification Head যোগ করা</h3>
+<p>
+প্রি-ট্রেন করা DistilBERT-এর কাজ ছিল "লুকানো শব্দ অনুমান করা" — এর আউটপুট স্তরে ৩০,৫২২টি সম্ভাব্য শব্দ। আমাদের দরকার মাত্র ৬টি আবেগ। তাই:
+</p>
+<ol>
+  <li>পুরনো আউটপুট স্তরটি <strong>ফেলে দেওয়া হয়</strong>।</li>
+  <li>জায়গায় একটি নতুন ছোট স্তর (<strong>classification head</strong>) বসানো হয়, যার আউটপুট ৬টি।</li>
+  <li>এই নতুন স্তরের ওজন <strong>এলোমেলোভাবে</strong> শুরু হয় — সে কিছুই জানে না।</li>
+</ol>
+
+<div class="flow">           ইনপুট বাক্য
+                ↓
+        [টোকেনাইজেশন]
+                ↓
+     ┌──────────────────────┐
+     │  DistilBERT দেহ      │  ← আগে থেকেই ভাষা জানে
+     │  (৬টি Transformer    │     ফাইন-টিউনিং-এ সামান্য বদলায়
+     │   স্তর, ৬.৭ কোটি     │
+     │   প্যারামিটার)        │
+     └──────────┬───────────┘
+                ↓
+      [CLS] টোকেনের ভেক্টর        (৭৬৮টি সংখ্যা = বাক্যের সারাংশ)
+                ↓
+     ┌──────────────────────┐
+     │ Classification Head  │  ← নতুন, এলোমেলো থেকে শুরু
+     │   ৭৬৮ → ৬            │     ফাইন-টিউনিং-এ দ্রুত শেখে
+     └──────────┬───────────┘
+                ↓
+        ৬টি কাঁচা স্কোর (logits)      যেমন: [-1.2, 4.8, 0.3, -2.1, -0.7, -1.1]
+                ↓
+           [Softmax]
+                ↓
+      ৬টি সম্ভাব্যতা (যোগফল = ১)     যেমন: [০.৫%, ৯৭.৪%, ১.১%, ০.১%, ০.৪%, ০.৫%]
+                                                    ↑ joy জয়ী</div>
+
+<h3>৮.৩ Softmax — কাঁচা স্কোরকে সম্ভাব্যতায় রূপান্তর</h3>
+<p>
+মডেলের সরাসরি আউটপুট (<strong>logits</strong>) যেকোনো সংখ্যা হতে পারে — ঋণাত্মকও। এগুলোকে সম্ভাব্যতায় (০ থেকে ১, যোগফল ১) বদলাতে <strong>Softmax</strong> ব্যবহার হয়:
+</p>
+<pre>P(শ্রেণি i) = e^(z_i) / Σ e^(z_j)
+
+<span class="c">প্রতিটি স্কোরকে e-এর ঘাতে বসানো হয় (সব ধনাত্মক হয়ে যায়),
+তারপর মোট যোগফল দিয়ে ভাগ (যোগফল ১ হয়ে যায়)।
+বড় স্কোর অসামঞ্জস্যপূর্ণভাবে বেশি সুবিধা পায়।</span></pre>
+<p>এই সম্ভাব্যতাগুলোই ফ্রন্টএন্ডের বার-চার্ট ও রাডার চার্টে দেখানো হয়।</p>
+
+<h3>৮.৪ Loss Function — ভুল মাপার নিয়ম</h3>
+<p>
+শেখার জন্য মডেলকে জানতে হবে সে <strong>কতটা ভুল</strong> করেছে। এই পরিমাপকে বলে <strong>loss</strong>। আমরা ব্যবহার করি <strong>Cross-Entropy Loss</strong>:
+</p>
+<pre>Loss = −log(P<sub>সঠিক শ্রেণি</sub>)</pre>
+<table>
+  <thead><tr><th>সঠিক উত্তরে মডেলের আস্থা</th><th class="n">Loss</th><th>ব্যাখ্যা</th></tr></thead>
+  <tbody>
+    <tr><td>৯৯% (প্রায় নিশ্চিত ও সঠিক)</td><td class="n">০.০১</td><td>প্রায় শাস্তি নেই</td></tr>
+    <tr><td>৫০% (দ্বিধাগ্রস্ত)</td><td class="n">০.৬৯</td><td>মাঝারি শাস্তি</td></tr>
+    <tr><td>১০% (ভুল করেছে)</td><td class="n">২.৩০</td><td>ভারী শাস্তি</td></tr>
+    <tr><td>১% (আত্মবিশ্বাসের সাথে ভুল)</td><td class="n">৪.৬১</td><td>অত্যন্ত ভারী শাস্তি</td></tr>
+  </tbody>
+</table>
+<p>
+লক্ষ করুন — <strong>আত্মবিশ্বাসের সাথে ভুল করাকে সবচেয়ে কঠোরভাবে শাস্তি দেওয়া হয়</strong>। এটি ইচ্ছাকৃত: আমরা চাই মডেল নিশ্চিত না হলে দ্বিধা প্রকাশ করুক।
+</p>
+
+<h3>৮.৫ ট্রেনিং লুপ — একটি ধাপে কী ঘটে</h3>
+<p>এটি ট্রেনিং-এর হৃদপিণ্ড। প্রতিটি ধাপে পাঁচটি কাজ হয়:</p>
+
+<div class="flow">╔═══════════════════════════════════════════════════════════════╗
+║  একটি ট্রেনিং ধাপ (one step) — ৩২টি বাক্যের একটি ব্যাচ        ║
+╚═══════════════════════════════════════════════════════════════╝
+
+  ১. FORWARD PASS (সামনের দিকে হিসাব)
+     ৩২টি বাক্য মডেলে ঢোকানো হয়
+     → প্রতিটির জন্য ৬টি করে সম্ভাব্যতা বেরিয়ে আসে
+
+  ২. LOSS গণনা
+     ভবিষ্যদ্বাণী বনাম আসল উত্তর তুলনা
+     → একটি সংখ্যা: "মডেল এই ব্যাচে কতটা ভুল করেছে"
+
+  ৩. BACKWARD PASS (Backpropagation)
+     ক্যালকুলাসের চেইন রুল ব্যবহার করে হিসাব করা হয়:
+     "৬.৭ কোটি প্যারামিটারের প্রত্যেকটি এই ভুলে কতটা দায়ী?"
+     → প্রতিটির জন্য একটি gradient (ঢাল) পাওয়া যায়
+
+  ৪. OPTIMIZER আপডেট (AdamW)
+     প্রতিটি প্যারামিটারকে ভুল কমানোর দিকে সামান্য সরানো হয়
+     নতুন ওজন = পুরনো ওজন − (learning_rate × gradient)
+
+  ৫. GRADIENT রিসেট
+     পরের ব্যাচের জন্য ঢালগুলো শূন্য করা হয়
+
+  ⟳ পরের ৩২টি বাক্য নিয়ে আবার ১ থেকে শুরু</div>
+
+<h3>৮.৬ Epoch, Batch, Step — হিসাবটি বুঝে নিন</h3>
+<table>
+  <thead><tr><th>পরিভাষা</th><th>অর্থ</th><th>আমাদের হিসাব</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Batch</strong></td><td>একসাথে প্রক্রিয়াকৃত বাক্যের সংখ্যা</td><td>৩২টি বাক্য</td></tr>
+    <tr><td><strong>Step</strong></td><td>একটি ব্যাচ নিয়ে একবার ওজন আপডেট</td><td>১৬০০০ ÷ ৩২ = <strong>৫০০ step/epoch</strong></td></tr>
+    <tr><td><strong>Epoch</strong></td><td>পুরো ট্রেনিং ডেটা একবার সম্পূর্ণ দেখা</td><td>৫টি epoch</td></tr>
+    <tr><td><strong>মোট</strong></td><td>সম্পূর্ণ ট্রেনিং-এ মোট আপডেট</td><td>৫০০ × ৫ = <strong>২,৫০০ step</strong></td></tr>
+  </tbody>
+</table>
+<p>
+অর্থাৎ ওজনগুলো ২,৫০০ বার সংশোধিত হয়, এবং মডেল প্রতিটি বাক্য মোট ৫ বার দেখে।
+</p>
+
+<h3>৮.৭ প্রতিটি Epoch শেষে যা ঘটে</h3>
+<ol>
+  <li>ট্রেনিং সাময়িক থামে; মডেলকে <strong>evaluation mode</strong>-এ নেওয়া হয়।</li>
+  <li>২,০০০টি <strong>ভ্যালিডেশন</strong> বাক্যে ভবিষ্যদ্বাণী করা হয় (এগুলো থেকে কোনো শেখা হয় না)।</li>
+  <li>Accuracy ও macro-F1 হিসাব করা হয়।</li>
+  <li>মডেলের বর্তমান অবস্থা (<strong>checkpoint</strong>) ডিস্কে সংরক্ষিত হয়।</li>
+  <li>ট্রেনিং আবার শুরু হয়।</li>
+</ol>
+<p>
+সব epoch শেষে <code>load_best_model_at_end=True</code> সেটিংটির কারণে <strong>সর্বোচ্চ ভ্যালিডেশন macro-F1 পাওয়া চেকপয়েন্টটি</strong> ফিরিয়ে আনা হয় — শেষেরটি নয়। কারণ শেষ epoch-এ ওভারফিটিং শুরু হয়ে থাকতে পারে।
+</p>
+
+<!-- ============================== 9 ============================== -->
+<h2 class="pb">৯. হাইপারপ্যারামিটার — প্রতিটির অর্থ ও যুক্তি</h2>
+
+<p>
+<strong>হাইপারপ্যারামিটার</strong> হলো সেই সেটিংস যা <em>আমরা</em> ঠিক করে দিই ট্রেনিং শুরুর আগে। (এর বিপরীতে <strong>প্যারামিটার</strong> বা ওজন — যা মডেল নিজে শেখে।) সুপারভাইজার প্রায় নিশ্চিতভাবে এগুলোর ব্যাখ্যা চাইবেন।
+</p>
+
+<table>
+  <thead><tr><th style="width:26%">সেটিং</th><th class="n" style="width:12%">মান</th><th>কেন এই মান</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>learning_rate</strong></td><td class="n">2e-5</td>
+      <td>প্রতি ধাপে ওজন কতটা বদলাবে। <strong>খুব বড়</strong> হলে সেরা সমাধান পেরিয়ে যায় এবং প্রি-ট্রেনিং-এর জ্ঞান নষ্ট হয় (catastrophic forgetting)। <strong>খুব ছোট</strong> হলে শেখা অসম্ভব ধীর। ফাইন-টিউনিং-এ 2e-5 থেকে 5e-5 প্রমাণিত পরিসর।</td>
+    </tr>
+    <tr>
+      <td><strong>batch_size</strong></td><td class="n">32</td>
+      <td>একসাথে কতগুলো বাক্য। বড় ব্যাচে ঢালের হিসাব স্থিতিশীল ও দ্রুত হয়, কিন্তু বেশি GPU মেমরি লাগে। ৩২ হলো Kaggle-এর T4 GPU-র (১৬GB) জন্য নিরাপদ ও কার্যকর মান।</td>
+    </tr>
+    <tr>
+      <td><strong>num_epochs</strong></td><td class="n">5</td>
+      <td>পুরো ডেটা কতবার দেখা হবে। ফাইন-টিউনিং-এ ৩–৫ যথেষ্ট; এর বেশি হলে ওভারফিটিং শুরু হয়। সেরা চেকপয়েন্ট নির্বাচন থাকায় বাড়তি epoch ক্ষতি করে না।</td>
+    </tr>
+    <tr>
+      <td><strong>weight_decay</strong></td><td class="n">0.01</td>
+      <td>একটি <strong>regularization</strong> কৌশল — ওজনগুলোকে অতিরিক্ত বড় হতে বাধা দেয়। বড় ওজন মানে মডেল কয়েকটি নির্দিষ্ট বৈশিষ্ট্যের উপর অতি-নির্ভরশীল, যা ওভারফিটিং-এর লক্ষণ।</td>
+    </tr>
+    <tr>
+      <td><strong>warmup_ratio</strong></td><td class="n">0.06</td>
+      <td>প্রথম ৬% ধাপে learning rate ০ থেকে ধীরে ধীরে বাড়ানো হয়। শুরুতে classification head এলোমেলো, তাই তখনকার ঢালগুলো বিশৃঙ্খল — সেই সময় বড় পদক্ষেপ নিলে প্রি-ট্রেন করা ভালো ওজনগুলো নষ্ট হয়ে যেতে পারে।</td>
+    </tr>
+    <tr>
+      <td><strong>max_length</strong></td><td class="n">96</td>
+      <td>সর্বোচ্চ টোকেন সংখ্যা। ডেটার ৯৯%-এর বেশি এর নিচে, তাই তথ্য হারানো নগণ্য, কিন্তু হিসাব অনেক হালকা।</td>
+    </tr>
+    <tr>
+      <td><strong>optimizer</strong></td><td class="n">AdamW</td>
+      <td>Adam-এর উন্নত সংস্করণ, যা weight decay সঠিকভাবে প্রয়োগ করে। Transformer ট্রেনিং-এ কার্যত মানদণ্ড।</td>
+    </tr>
+    <tr>
+      <td><strong>fp16</strong></td><td class="n">GPU-তে চালু</td>
+      <td>৩২-বিটের বদলে ১৬-বিট দশমিক সংখ্যা ব্যবহার। প্রায় দ্বিগুণ দ্রুত ও অর্ধেক মেমরি, নির্ভুলতায় প্রভাব নগণ্য। CPU-তে সুবিধা নেই তাই স্বয়ংক্রিয়ভাবে বন্ধ থাকে।</td>
+    </tr>
+    <tr>
+      <td><strong>seed</strong></td><td class="n">42</td>
+      <td>এলোমেলোতা নিয়ন্ত্রণ করে, যাতে একই কোড আবার চালালে <strong>একই ফলাফল</strong> পাওয়া যায় — বৈজ্ঞানিক পুনরুৎপাদনযোগ্যতার জন্য অপরিহার্য।</td>
+    </tr>
+    <tr class="hl">
+      <td><strong>metric_for_<br>best_model</strong></td><td class="n">f1_macro</td>
+      <td><strong>সবচেয়ে গুরুত্বপূর্ণ সিদ্ধান্ত।</strong> accuracy দিয়ে বাছাই করলে যে মডেল বিরল <code>surprise</code> শ্রেণিটি প্রায় উপেক্ষা করে সেও জিতে যেত। macro-F1 সব শ্রেণিকে সমান গুরুত্ব দেয়, তাই বিরল শ্রেণিকে সুরক্ষা দেয়।</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>৯.১ শ্রেণি ভারসাম্যহীনতার বিকল্প সমাধান</h3>
+<p>
+কোডে <code>--class-weights</code> নামে একটি সুইচ রাখা আছে। এটি চালু করলে <strong>বিরল শ্রেণির ভুলকে বেশি শাস্তি</strong> দেওয়া হয় — surprise ভুল করলে joy ভুল করার চেয়ে অনেক বেশি loss যোগ হয়।
+</p>
+<p>
+<strong>কিন্তু এটি ডিফল্টভাবে বন্ধ রাখা হয়েছে</strong>, কারণ সাধারণত ফাইন-টিউনিং একাই ভারসাম্যহীনতা সামলে নেয়, এবং জোর করে ওজন দিলে সামগ্রিক নির্ভুলতা কমে যেতে পারে। প্রথমে ফলাফল দেখা, তারপর প্রয়োজন হলে ব্যবহার করা — এটিই সঠিক পদ্ধতি। এটিও সুপারভাইজারকে বলার মতো একটি বিবেচিত সিদ্ধান্ত।
+</p>
+
+<!-- ============================== 10 ============================== -->
+<h2>১০. মূল্যায়ন — মেট্রিক বোঝা</h2>
+
+<h3>১০.১ চারটি সম্ভাব্য ফলাফল</h3>
+<p>একটি নির্দিষ্ট শ্রেণির (ধরুন <code>joy</code>) দৃষ্টিকোণ থেকে প্রতিটি ভবিষ্যদ্বাণী চার ভাগের একটিতে পড়ে:</p>
+<table>
+  <thead><tr><th></th><th>মডেল বলেছে joy</th><th>মডেল বলেছে joy নয়</th></tr></thead>
+  <tbody>
+    <tr><th>আসলে joy</th><td><strong>TP</strong> — সত্য ইতিবাচক ✅</td><td><strong>FN</strong> — মিথ্যা নেতিবাচক ❌ (মিস করেছে)</td></tr>
+    <tr><th>আসলে joy নয়</th><td><strong>FP</strong> — মিথ্যা ইতিবাচক ❌ (ভুল অ্যালার্ম)</td><td><strong>TN</strong> — সত্য নেতিবাচক ✅</td></tr>
+  </tbody>
+</table>
+
+<h3>১০.২ চারটি মেট্রিক</h3>
+
+<h4>Accuracy (নির্ভুলতা)</h4>
+<pre>Accuracy = (মোট সঠিক ভবিষ্যদ্বাণী) / (মোট ভবিষ্যদ্বাণী)</pre>
+<p>
+সহজবোধ্য, কিন্তু ভারসাম্যহীন ডেটায় <strong>বিভ্রান্তিকর</strong> — কারণ এটি বড় শ্রেণিগুলোর দ্বারা প্রভাবিত হয়। ৪.২ অনুচ্ছেদের "বোকা মডেল" উদাহরণটি মনে করুন।
+</p>
+
+<h4>Precision (নির্ভুলতা/শুদ্ধতা)</h4>
+<pre>Precision = TP / (TP + FP)</pre>
+<p>
+<em>"মডেল যতবার 'joy' বলেছে, তার কত ভাগ আসলেই joy ছিল?"</em><br>
+কম precision = মডেল অতিরিক্ত উৎসাহী, প্রায়ই ভুল অ্যালার্ম দেয়।
+</p>
+
+<h4>Recall (পুনরুদ্ধার/ধরার ক্ষমতা)</h4>
+<pre>Recall = TP / (TP + FN)</pre>
+<p>
+<em>"ডেটায় যতগুলো আসল joy ছিল, তার কত ভাগ মডেল খুঁজে পেয়েছে?"</em><br>
+কম recall = মডেল অনেকগুলো মিস করছে।
+</p>
+
+<div class="box">
+  <span class="t">Precision বনাম Recall — একটি টানাপোড়েন</span>
+  <p>
+  একটি মাছ ধরার জালের কথা ভাবুন। <strong>ছোট ফাঁকের জাল</strong> সব মাছ ধরবে (উচ্চ recall) কিন্তু আবর্জনাও উঠবে (নিম্ন precision)। <strong>বড় ফাঁকের জাল</strong> শুধু বড় মাছ ধরবে (উচ্চ precision) কিন্তু অনেক মাছ পালাবে (নিম্ন recall)।
+  </p>
+  <p>দুটো একসাথে বাড়ানো সাধারণত সম্ভব নয় — একটি বাড়লে অন্যটি কমে। তাই দুটোকে একত্রে মাপার একটি সংখ্যা দরকার।</p>
+</div>
+
+<h4>F1-Score</h4>
+<pre>F1 = 2 × (Precision × Recall) / (Precision + Recall)</pre>
+<p>
+এটি Precision ও Recall-এর <strong>হারমোনিক গড়</strong> — সাধারণ গড় নয়। পার্থক্যটি গুরুত্বপূর্ণ: হারমোনিক গড়ে <strong>যেকোনো একটি খুব কম হলেই F1 কমে যায়</strong>।
+</p>
+<table>
+  <thead><tr><th class="n">Precision</th><th class="n">Recall</th><th class="n">সাধারণ গড়</th><th class="n">F1 (হারমোনিক)</th></tr></thead>
+  <tbody>
+    <tr><td class="n">১.০০</td><td class="n">০.০২</td><td class="n">০.৫১ 🙂</td><td class="n"><strong>০.০৪ 😟</strong></td></tr>
+    <tr><td class="n">০.৫০</td><td class="n">০.৫০</td><td class="n">০.৫০</td><td class="n">০.৫০</td></tr>
+  </tbody>
+</table>
+<p>প্রথম সারিতে মডেলটি কার্যত অকেজো — সাধারণ গড় সেটি লুকিয়ে ফেলে, কিন্তু F1 ধরে ফেলে।</p>
+
+<h3>১০.৩ Macro-F1 বনাম Weighted-F1 — প্রকল্পের কেন্দ্রীয় সিদ্ধান্ত</h3>
+<p>ছয়টি শ্রেণির আলাদা F1 আছে। এদের একত্রিত করার দুটি উপায়:</p>
+<table>
+  <thead><tr><th>পদ্ধতি</th><th>হিসাব</th><th>প্রভাব</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td><strong>Macro-F1</strong></td><td>৬টি F1-এর সরল গড়</td><td>প্রতিটি শ্রেণি <strong>সমান ওজন</strong> পায় — ৬৬টি নমুনার surprise আর ৬৯৫টি নমুনার joy সমান গুরুত্বপূর্ণ</td></tr>
+    <tr><td>Weighted-F1</td><td>নমুনা-সংখ্যা অনুযায়ী ভারিত গড়</td><td>বড় শ্রেণিগুলো <strong>প্রাধান্য</strong> পায় — বিরল শ্রেণির দুর্বলতা ঢাকা পড়ে</td></tr>
+  </tbody>
+</table>
+
+<div class="box key">
+  <span class="t">আমাদের ফলাফলে এই পার্থক্য স্পষ্ট দেখা যায়</span>
+  <p>
+  Macro-F1 = <strong>০.৮৮২৫</strong> · Weighted-F1 = <strong>০.৯২৬৯</strong>
+  </p>
+  <p>
+  Weighted-F1 প্রায় ৪.৪ পয়েন্ট বেশি! কারণ এটি বড় শ্রেণিগুলোর ভালো ফলাফল দিয়ে <code>surprise</code>-এর দুর্বল ফলাফল (F1 মাত্র ০.৭৩৭৭) ঢেকে দিচ্ছে। <strong>এই কারণেই আমরা macro-F1 রিপোর্ট করি এবং সেটি দিয়েই সেরা মডেল বাছাই করি</strong> — এটি বেশি সৎ ও কঠোর মানদণ্ড।
+  </p>
+</div>
+
+<!-- ============================== 11 ============================== -->
+<h2 class="pb">১১. ফলাফল বিশ্লেষণ</h2>
+
+<h3>১১.১ সামগ্রিক ফলাফল (টেস্ট সেট, ২,০০০ বাক্য)</h3>
+<table>
+  <thead><tr><th>মডেল</th><th class="n">Accuracy</th><th class="n">Macro-F1</th><th class="n">Weighted-F1</th></tr></thead>
+  <tbody>
+    <tr><td>TF-IDF + Logistic Regression (বেসলাইন)</td><td class="n">৮৭.১৫%</td><td class="n">০.৮৩৪৪</td><td class="n">০.৮৭৪১</td></tr>
+    <tr class="hl"><td><strong>DistilBERT (ডিপ্লয় করা)</strong></td><td class="n"><strong>৯২.৭০%</strong></td><td class="n"><strong>০.৮৮২৫</strong></td><td class="n"><strong>০.৯২৬৯</strong></td></tr>
+    <tr><td><em>পার্থক্য</em></td><td class="n"><em>+৫.৫৫ পয়েন্ট</em></td><td class="n"><em>+০.০৪৮১</em></td><td class="n"><em>+০.০৫২৮</em></td></tr>
+  </tbody>
+</table>
+<p>
+<strong>উপসংহার:</strong> ট্রান্সফরমার বেসলাইনকে স্পষ্টভাবে হারিয়েছে — accuracy-তে ৫.৫ পয়েন্ট এবং macro-F1-এ ০.০৪৮। অর্থাৎ ট্রান্সফরমার ব্যবহারের জটিলতা <strong>ন্যায্য</strong>। বেসলাইন না থাকলে এই দাবিটি করা যেত না।
+</p>
+
+<h3>১১.২ শ্রেণিভিত্তিক ফলাফল</h3>
+<table>
+  <thead><tr><th>আবেগ</th><th class="n">Precision</th><th class="n">Recall</th><th class="n">F1</th><th class="n">নমুনা</th></tr></thead>
+  <tbody>
+    <tr><td style="color:#2F5DB0"><strong>sadness</strong></td><td class="n">০.৯৬৮৯</td><td class="n">০.৯৬৫৬</td><td class="n">০.৯৬৭২</td><td class="n">৫৮১</td></tr>
+    <tr><td style="color:#B07A0A"><strong>joy</strong></td><td class="n">০.৯৪৯৩</td><td class="n">০.৯৪২৪</td><td class="n">০.৯৪৫৮</td><td class="n">৬৯৫</td></tr>
+    <tr><td style="color:#B03235"><strong>anger</strong></td><td class="n">০.৯২৬৭</td><td class="n">০.৯২০০</td><td class="n">০.৯২৩৪</td><td class="n">২৭৫</td></tr>
+    <tr><td style="color:#6D3FD1"><strong>fear</strong></td><td class="n">০.৮৭৬১</td><td class="n">০.৯১৫২</td><td class="n">০.৮৯৫২</td><td class="n">২২৪</td></tr>
+    <tr><td style="color:#B03A63"><strong>love</strong></td><td class="n">০.৮০৩৬</td><td class="n">০.৮৪৯১</td><td class="n">০.৮২৫৭</td><td class="n">১৫৯</td></tr>
+    <tr class="hl"><td style="color:#0F766E"><strong>surprise</strong></td><td class="n">০.৮০৩৬</td><td class="n"><strong>০.৬৮১৮</strong></td><td class="n">০.৭৩৭৭</td><td class="n">৬৬</td></tr>
+  </tbody>
+</table>
+
+<div class="box warn">
+  <span class="t">সবচেয়ে গুরুত্বপূর্ণ পর্যবেক্ষণ</span>
+  <p>
+  লক্ষ করুন — <strong>নমুনা সংখ্যা যত কম, ফলাফল তত খারাপ</strong>। এটি কাকতালীয় নয়, এটি সরাসরি শ্রেণি ভারসাম্যহীনতার পরিণতি:
+  </p>
+  <ul>
+    <li><code>sadness</code> — ৫৮১টি নমুনা → F1 ০.৯৬৭</li>
+    <li><code>surprise</code> — ৬৬টি নমুনা → F1 ০.৭৩৮</li>
+  </ul>
+  <p>
+  <code>surprise</code>-এর recall মাত্র <strong>০.৬৮১৮</strong> — অর্থাৎ ৬৬টি আসল বিস্ময়সূচক বাক্যের মধ্যে মডেল মাত্র ৪৫টি ধরতে পেরেছে, <strong>২১টি মিস করেছে</strong>। এটি প্রকল্পের সবচেয়ে বড় দুর্বলতা এবং এটি লুকানো হয়নি — অ্যাপের About পাতায় স্পষ্টভাবে দেখানো আছে।
+  </p>
+</div>
+
+<h3>১১.৩ Confusion Matrix — ভুলগুলো কোথায়?</h3>
+<p>
+<strong>Confusion Matrix</strong> দেখায় মডেল কোন শ্রেণিকে কোন শ্রেণির সাথে গুলিয়ে ফেলছে। সারি = আসল উত্তর, কলাম = মডেলের ভবিষ্যদ্বাণী। কর্ণ (তির্যক) বরাবরের সংখ্যাগুলো সঠিক।
+</p>
+<table>
+  <thead>
+    <tr><th>আসল ↓ / বলেছে →</th><th class="n">sadness</th><th class="n">joy</th><th class="n">love</th><th class="n">anger</th><th class="n">fear</th><th class="n">surprise</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>sadness</th><td class="n"><strong>৫৬১</strong></td><td class="n">৪</td><td class="n">১</td><td class="n">১০</td><td class="n">৫</td><td class="n">০</td></tr>
+    <tr><th>joy</th><td class="n">১</td><td class="n"><strong>৬৫৫</strong></td><td class="n hl">৩২</td><td class="n">৩</td><td class="n">০</td><td class="n">৪</td></tr>
+    <tr><th>love</th><td class="n">০</td><td class="n hl">২৩</td><td class="n"><strong>১৩৫</strong></td><td class="n">১</td><td class="n">০</td><td class="n">০</td></tr>
+    <tr><th>anger</th><td class="n">১০</td><td class="n">৩</td><td class="n">০</td><td class="n"><strong>২৫৩</strong></td><td class="n">৯</td><td class="n">০</td></tr>
+    <tr><th>fear</th><td class="n">৬</td><td class="n">০</td><td class="n">০</td><td class="n">৬</td><td class="n"><strong>২০৫</strong></td><td class="n">৭</td></tr>
+    <tr><th>surprise</th><td class="n">১</td><td class="n">৫</td><td class="n">০</td><td class="n">০</td><td class="n hl">১৫</td><td class="n"><strong>৪৫</strong></td></tr>
+  </tbody>
+</table>
+
+<h4>তিনটি প্রধান ভুলের ধরন — এবং এগুলো যুক্তিসঙ্গত</h4>
+<ol>
+  <li>
+    <strong>joy ↔ love গুলিয়ে ফেলা (৩২ + ২৩ = ৫৫টি ভুল)</strong> — সবচেয়ে বড় সমস্যা।
+    এটি বোধগম্য: "i feel so wonderful with him" — এটি আনন্দ না ভালোবাসা? <strong>মানুষও একমত হবে না</strong>। দুটি আবেগ প্রকৃতিগতভাবেই ঘনিষ্ঠ, এবং ভালোবাসাকে আনন্দের একটি উপ-শ্রেণি হিসেবেও দেখা যায়।
+  </li>
+  <li>
+    <strong>surprise → fear (১৫টি ভুল)</strong> — surprise-এর সবচেয়ে বড় ক্ষতির উৎস।
+    বিস্ময় প্রায়ই ভয়ের ভাষা ব্যবহার করে: "i cant believe this is happening" বাক্যটি আনন্দের বিস্ময়ও হতে পারে, আতঙ্কও হতে পারে। শুধু শব্দ দেখে পার্থক্য করা কঠিন।
+  </li>
+  <li>
+    <strong>anger ↔ sadness (১০ + ১০ = ২০টি ভুল)</strong> — দুটোই নেতিবাচক আবেগ এবং প্রায়ই একই শব্দভাণ্ডার ব্যবহার করে।
+  </li>
+</ol>
+<p>
+<strong>এই বিশ্লেষণটি গুরুত্বপূর্ণ</strong>, কারণ এটি দেখায় মডেলের ভুলগুলো এলোমেলো নয় — <strong>ভাষাগতভাবে যুক্তিসঙ্গত</strong>। সুপারভাইজারকে এটি বলতে পারলে বোঝা যাবে আপনি শুধু সংখ্যা দেখেননি, ভুলের কারণও বুঝেছেন।
+</p>
+
+<h3>১১.৪ গতি</h3>
+<p>
+CPU-তে ২,০০০টি বাক্য মূল্যায়নে সময় লেগেছে <strong>১০৬.১৪ সেকেন্ড</strong>, অর্থাৎ প্রতি বাক্যে <strong>৫৩ মিলিসেকেন্ড</strong>। লাইভ সার্ভারে গরম অবস্থায় একটি অনুরোধে ~৭০–১৫০ মিলিসেকেন্ড লাগে, যা রিয়েল-টাইম অভিজ্ঞতার জন্য যথেষ্ট দ্রুত।
+</p>
+
+<!-- ============================== 12 ============================== -->
+<h2>১২. ব্যাকএন্ড — FastAPI ইনফারেন্স সার্ভিস</h2>
+
+<h3>১২.১ কাজ</h3>
+<p>ব্যাকএন্ডের দায়িত্ব: HTTP অনুরোধ গ্রহণ → মডেল চালানো → JSON উত্তর ফেরত পাঠানো।</p>
+<table>
+  <thead><tr><th>মেথড</th><th>পথ</th><th>কাজ</th></tr></thead>
+  <tbody>
+    <tr><td>POST</td><td><code>/api/predict</code></td><td>একটি বাক্য বিশ্লেষণ</td></tr>
+    <tr><td>POST</td><td><code>/api/predict/batch</code></td><td>সর্বোচ্চ ২০০টি বাক্য একসাথে + সমষ্টিগত বণ্টন</td></tr>
+    <tr><td>GET</td><td><code>/api/health</code></td><td>সার্ভার ও মডেলের অবস্থা</td></tr>
+    <tr><td>GET</td><td><code>/api/model</code></td><td>প্রকৃত মূল্যায়ন সংখ্যা</td></tr>
+    <tr><td>GET</td><td><code>/docs</code></td><td>স্বয়ংক্রিয় ইন্টারঅ্যাক্টিভ API ডকুমেন্টেশন</td></tr>
+  </tbody>
+</table>
+
+<h3>১২.২ চারটি গুরুত্বপূর্ণ ডিজাইন সিদ্ধান্ত</h3>
+
+<h4>১. মডেল একবারই লোড হয়</h4>
+<p>
+মডেল লোড হতে ২০–৬০ সেকেন্ড লাগে। প্রতিটি অনুরোধে লোড করলে সিস্টেম অচল হয়ে যেত। তাই সার্ভার চালু হওয়ার সময় <strong>একবার</strong> লোড হয় এবং মেমরিতে থেকে যায়।
+</p>
+
+<h4>২. ব্যাকগ্রাউন্ড থ্রেডে লোডিং</h4>
+<p>
+মডেল লোডিং মূল প্রোগ্রামকে আটকে রাখে না — এটি একটি আলাদা থ্রেডে চলে। ফলে <code>/api/health</code> সাথে সাথেই উত্তর দিতে পারে <code>status: "loading"</code> বলে। এই সংকেতটি দেখেই ফ্রন্টএন্ড "মডেল জেগে উঠছে…" বার্তা দেখায় সাদা পর্দার বদলে।
+</p>
+
+<h4>৩. Graceful Degradation</h4>
+<p>
+ট্রান্সফরমার লোড না হলে সিস্টেম বন্ধ হয় না — বেসলাইন মডেলে নেমে আসে এবং প্রতিটি উত্তরে <code>model_source</code> ক্ষেত্রে সত্যটি লিখে দেয়।
+</p>
+
+<h4>৪. থ্রেডপুলে ইনফারেন্স</h4>
+<p>
+PyTorch-এর হিসাব <strong>blocking</strong> — এটি সরাসরি চালালে সার্ভারের event loop আটকে যেত এবং অন্য কোনো ব্যবহারকারী উত্তর পেতেন না। তাই <code>run_in_threadpool</code> দিয়ে আলাদা থ্রেডে চালানো হয়।
+</p>
+
+<h3>১২.৩ নিরাপত্তা ও সুরক্ষা</h3>
+<ul>
+  <li><strong>ইনপুট যাচাই</strong> — খালি টেক্সট বা ১০০০ অক্ষরের বেশি হলে ৪২২ ত্রুটি।</li>
+  <li><strong>CORS</strong> — শুধুমাত্র নির্দিষ্ট ডোমেইন থেকে অনুরোধ গ্রহণ।</li>
+  <li><strong>Rate limiting</strong> — প্রতি IP থেকে মিনিটে ৬০টি অনুরোধ। তবে <code>/api/health</code> সীমার বাইরে, কারণ ফ্রন্টএন্ড নিয়মিত সেটি পরীক্ষা করে।</li>
+  <li><strong>গোপনীয়তা</strong> — ব্যবহারকারীর লেখা <strong>কোথাও সংরক্ষণ করা হয় না</strong>। লগে শুধু দৈর্ঘ্য, ফলাফল ও সময় রাখা হয়।</li>
+</ul>
+
+<!-- ============================== 13 ============================== -->
+<h2>১৩. ফ্রন্টএন্ড — ব্যবহারকারী ইন্টারফেস</h2>
+
+<h3>১৩.১ চারটি পাতা</h3>
+<table>
+  <thead><tr><th>পাতা</th><th>বিবরণ</th></tr></thead>
+  <tbody>
+    <tr><td><code>/</code> — হোম</td><td>স্বয়ংক্রিয়ভাবে টাইপ হওয়া লাইভ ডেমো, যা আসল API-তে অনুরোধ পাঠায়</td></tr>
+    <tr><td><code>/analyze</code></td><td>মূল কর্মক্ষেত্র — টাইপ থামালেই ৪০০ms পরে বিশ্লেষণ, রাডার চার্ট, বার চার্ট, সেশন ইতিহাস</td></tr>
+    <tr><td><code>/batch</code></td><td>অনেক লাইন বা CSV ফাইল একসাথে — সারণি, সমষ্টিগত চার্ট, CSV রপ্তানি</td></tr>
+    <tr><td><code>/about</code></td><td>ডেটাসেট, প্রকৃত মেট্রিক, সীমাবদ্ধতা</td></tr>
+  </tbody>
+</table>
+
+<h3>১৩.২ Debouncing — একটি গুরুত্বপূর্ণ কৌশল</h3>
+<p>
+ব্যবহারকারী টাইপ করার সময় প্রতিটি অক্ষরে API ডাকলে ২০ অক্ষরের বাক্যে ২০টি অনুরোধ যেত — সার্ভারের উপর অযথা চাপ।
+</p>
+<p>
+<strong>Debouncing</strong> মানে: টাইপ <em>থেমে যাওয়ার</em> ৪০০ মিলিসেকেন্ড পরে একবারই অনুরোধ পাঠানো। এছাড়া নতুন অনুরোধ শুরু হলে আগেরটি <strong>বাতিল</strong> করা হয়, যাতে পুরনো ধীরগতির উত্তর এসে নতুন সঠিক উত্তরকে চাপা না দেয়।
+</p>
+
+<h3>১৩.৩ প্রতিটি অবস্থার নকশা</h3>
+<p>একটি পেশাদার অ্যাপ শুধু সফল অবস্থার কথা ভাবে না। এখানে প্রতিটি অবস্থা আলাদাভাবে ডিজাইন করা:</p>
+<ul>
+  <li><strong>খালি</strong> — উদাহরণ বাক্যের বোতাম দেওয়া থাকে</li>
+  <li><strong>লোডিং</strong> — ঘুরন্ত চাকা নয়, <strong>skeleton</strong> (কাঠামোর ছায়া), যাতে ফল এলে পাতা লাফিয়ে না ওঠে</li>
+  <li><strong>জেগে ওঠা</strong> — ফ্রি সার্ভারের ঠান্ডা শুরুর জন্য আলাদা বার্তা</li>
+  <li><strong>ত্রুটি</strong> — মানুষের ভাষায় ব্যাখ্যা + "আবার চেষ্টা করুন" বোতাম</li>
+  <li><strong>সফল</strong> — অ্যানিমেশনসহ চার্ট</li>
+</ul>
+
+<h3>১৩.৪ প্রবেশগম্যতা (Accessibility)</h3>
+<ul>
+  <li>রাডার চার্টের একটি <strong>লিখিত বিকল্প</strong> আছে স্ক্রিন রিডারের জন্য (চার্ট অন্ধ ব্যবহারকারীর কাছে অর্থহীন)</li>
+  <li>সব ইনপুটে যথাযথ <code>label</code></li>
+  <li>কীবোর্ড দিয়ে সম্পূর্ণ ব্যবহারযোগ্য</li>
+  <li><code>aria-live</code> দিয়ে অবস্থার পরিবর্তন ঘোষণা</li>
+  <li>ব্যবহারকারী "কম অ্যানিমেশন" পছন্দ করলে সব চলাচল বন্ধ</li>
+</ul>
+
+<!-- ============================== 14 ============================== -->
+<h2 class="pb">১৪. ডিপ্লয়মেন্ট</h2>
+
+<table>
+  <thead><tr><th>অংশ</th><th>প্ল্যাটফর্ম</th><th>ঠিকানা</th></tr></thead>
+  <tbody>
+    <tr><td>ফ্রন্টএন্ড</td><td>Vercel</td><td>emotionsense-ochre.vercel.app</td></tr>
+    <tr><td>ব্যাকএন্ড</td><td>Render (Docker)</td><td>emotionsense-api-452m.onrender.com</td></tr>
+    <tr><td>সোর্স কোড</td><td>GitHub</td><td>github.com/claudeproject751-dot/tricore</td></tr>
+  </tbody>
+</table>
+
+<h3>১৪.১ Docker কেন?</h3>
+<p>
+Docker পুরো পরিবেশটিকে (Python সংস্করণ, সব লাইব্রেরি, মডেল ফাইল) একটি <strong>পাত্রে</strong> বেঁধে ফেলে। ফলে "আমার কম্পিউটারে তো চলছিল" সমস্যাটি দূর হয় — যেখানেই চালান, একই ফল।
+</p>
+<p>
+দুটি অপ্টিমাইজেশন করা হয়েছে: (১) CPU-only PyTorch ব্যবহার — ২.৫ GB-র বদলে ২০০ MB; (২) মডেলের ওজন <strong>ইমেজের ভেতরেই</strong> রাখা, যাতে সার্ভার চালু হওয়ার সময় ২৫০ MB ডাউনলোড করতে না হয়।
+</p>
+
+<h3>১৪.২ Cold Start — ফ্রি হোস্টিং-এর বাস্তবতা</h3>
+<p>
+Render-এর ফ্রি সেবায় ১৫ মিনিট নিষ্ক্রিয় থাকলে সার্ভার ঘুমিয়ে পড়ে। পরের অনুরোধে জাগতে ৩০–৬০ সেকেন্ড লাগে।
+</p>
+<p>
+এটি লুকানো হয়নি — বরং একটি <strong>ডিজাইন করা অবস্থা</strong> হিসেবে সামলানো হয়েছে: API সাথে সাথে ৫০৩ কোড ও <code>Retry-After</code> হেডার পাঠায়, আর ফ্রন্টএন্ড "মডেল জেগে উঠছে, ফ্রি সার্ভারে এক মিনিট পর্যন্ত লাগতে পারে" বার্তা দেখায়। <strong>সমস্যাকে সৎভাবে ব্যাখ্যা করাও একটি প্রকৌশল সমাধান।</strong>
+</p>
+
+<!-- ============================== 15 ============================== -->
+<h2>১৫. টেস্টিং ও CI</h2>
+
+<table>
+  <thead><tr><th>অংশ</th><th class="n">সংখ্যা</th><th>কী পরীক্ষা করে</th></tr></thead>
+  <tbody>
+    <tr><td>ব্যাকএন্ড (pytest)</td><td class="n">৪০</td><td>সঠিক উত্তর, খালি ইনপুট, অতিরিক্ত বড় ইনপুট, ব্যাচ, cold start, CORS, fallback</td></tr>
+    <tr><td>ফ্রন্টএন্ড (Vitest)</td><td class="n">১৮</td><td>API ত্রুটি ব্যবস্থাপনা, debounce, ফর্ম আচরণ, ইতিহাস সংরক্ষণ</td></tr>
+    <tr><td><strong>মোট</strong></td><td class="n"><strong>৫৮</strong></td><td>সবগুলো পাস</td></tr>
+  </tbody>
+</table>
+<p>
+টেস্টে আসল মডেল ব্যবহার করা হয় না — একটি <strong>নকল (stub)</strong> মডেল ব্যবহার হয়। ফলে টেস্ট কয়েক সেকেন্ডে শেষ হয় এবং ২৫০ MB ডাউনলোড লাগে না।
+</p>
+<p>
+<strong>CI (Continuous Integration):</strong> GitHub-এ কোড পাঠানো মাত্র স্বয়ংক্রিয়ভাবে সব টেস্ট, lint, টাইপ-চেক ও Docker বিল্ড চলে। কিছু ভাঙলে সাথে সাথে জানা যায়।
+</p>
+
+<!-- ============================== 16 ============================== -->
+<h2>১৬. সীমাবদ্ধতা ও নৈতিক দিক</h2>
+
+<div class="box danger">
+  <span class="t">⚠ এটি কোনো চিকিৎসা বা রোগনির্ণয়ের যন্ত্র নয়</span>
+  <p>
+  এই সিস্টেম শুধু <strong>শব্দ দেখে</strong> আবেগ অনুমান করে। এটি কখনোই মানসিক স্বাস্থ্য পরীক্ষা, চাকরির নিয়োগ, বা কোনো ব্যক্তির অধিকার ও কল্যাণ সংক্রান্ত সিদ্ধান্তে ব্যবহার করা যাবে না।
+  </p>
+</div>
+
+<ol>
+  <li><strong>ভাষার ধরন সীমিত।</strong> ট্রেনিং ডেটা ইংরেজি টুইট, যার অধিকাংশ "i feel…" দিয়ে শুরু। আনুষ্ঠানিক লেখা, দীর্ঘ নথি বা অন্য ভাষায় ফলাফল অনির্ভরযোগ্য।</li>
+  <li><strong>ছয়টি শ্রেণি, সবসময় একজন বিজয়ী।</strong> নিরপেক্ষ, মিশ্র বা ব্যঙ্গাত্মক বাক্যের কোনো সঠিক উত্তর নেই — তবু মডেলকে একটি বাছতেই হয়। তাই কম আত্মবিশ্বাসের ফলাফলে দ্বিতীয় স্থানের স্কোর দেখা জরুরি।</li>
+  <li><strong>বিরল শ্রেণি দুর্বল।</strong> <code>surprise</code>-এর recall মাত্র ০.৬৮।</li>
+  <li><strong>পক্ষপাত উত্তরাধিকারসূত্রে পাওয়া।</strong> মূল ডেটা ও DistilBERT-এর প্রি-ট্রেনিং ডেটায় থাকা সামাজিক পক্ষপাত এই মডেলেও রয়ে গেছে; ফাইন-টিউনিং তা সংশোধন করে না।</li>
+  <li><strong>ডেটাসেট লাইসেন্স।</strong> গবেষণা ও শিক্ষামূলক ব্যবহারের জন্য — বাণিজ্যিক ব্যবহারে পৃথক অনুমতি প্রয়োজন।</li>
+</ol>
+
+<!-- ============================== 17 ============================== -->
+<h2 class="pb">১৭. সুপারভাইজারের সম্ভাব্য প্রশ্ন ও উত্তর</h2>
+
+<h3>ক · সততা ও পরিধি সংক্রান্ত</h3>
+
+<div class="qa"><p class="q">প্রশ্ন: তুমি নিজে মডেল ট্রেন করেছ?</p>
+<p class="a">বেসলাইন মডেল (TF-IDF + Logistic Regression) আমি নিজে ট্রেন করেছি — টেস্টে ৮৭.১৫% accuracy। ট্রান্সফরমার ফাইন-টিউনিং-এর সম্পূর্ণ কোড ও Kaggle নোটবুক আমি লিখেছি, কিন্তু <strong>ফাইন-টিউনিং এখনো চালানো হয়নি</strong>। বর্তমানে একই ডেটাসেটে ট্রেন করা একটি পাবলিক DistilBERT ব্যবহার করছি এবং <strong>সেটি আমি নিজে টেস্ট সেটে মূল্যায়ন করেছি</strong> — ৯২.৭০% accuracy, ০.৮৮২৫ macro-F1।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: তাহলে তোমার নিজের অবদান কী?</p>
+<p class="a">সম্পূর্ণ ML পাইপলাইন (ডেটা বিশ্লেষণ, বেসলাইন ট্রেনিং, ফাইন-টিউনিং কোড, মূল্যায়ন কোড), সম্পূর্ণ ব্যাকএন্ড API, সম্পূর্ণ ফ্রন্টএন্ড, ৫৮টি টেস্ট, Docker কনটেইনারাইজেশন, CI পাইপলাইন এবং লাইভ ডিপ্লয়মেন্ট। মডেল ওজন ছাড়া বাকি সবটাই।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: নিজের মডেল ট্রেন করতে কত সময় লাগবে?</p>
+<p class="a">Kaggle-এর ফ্রি T4 GPU-তে প্রায় ৬ মিনিট। নোটবুকটি প্রস্তুত — শুধু GPU চালু করে, HF টোকেন যোগ করে চালালেই হবে। এরপর ব্যাকএন্ডে <code>MODEL_REPO</code> বদলালেই লাইভ সাইট নিজের মডেল ব্যবহার শুরু করবে।</p></div>
+
+<h3>খ · ট্রেনিং সংক্রান্ত</h3>
+
+<div class="qa"><p class="q">প্রশ্ন: Fine-tuning মানে কী? শূন্য থেকে ট্রেন করলে না কেন?</p>
+<p class="a">শূন্য থেকে ট্রেন করতে কোটি টাকার GPU ও সপ্তাহের পর সপ্তাহ লাগত। Fine-tuning-এ গুগলের আগে থেকে ট্রেন করা DistilBERT নেওয়া হয় — যেটি ইতিমধ্যে ইংরেজি ভাষা জানে — এবং শুধু আমাদের নির্দিষ্ট কাজের জন্য সামান্য সমন্বয় করা হয়। এটি Transfer Learning-এর প্রয়োগ।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: প্রি-ট্রেনিং-এ মডেল কী শেখে?</p>
+<p class="a">Masked Language Modeling — বাক্য থেকে এলোমেলোভাবে শব্দ লুকিয়ে দিয়ে সেটি অনুমান করতে বলা হয়। কোটি কোটি বাক্যে এটি করতে করতে মডেল ব্যাকরণ, শব্দের অর্থ ও প্রেক্ষাপট শিখে ফেলে। এতে কোনো মানুষের লেবেল লাগে না — তাই একে self-supervised learning বলে।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Learning rate 2e-5 কেন? বেশি দিলে কী হতো?</p>
+<p class="a">প্রি-ট্রেন করা ওজনগুলো ইতিমধ্যে ভালো অবস্থায় আছে; বড় learning rate দিলে সেই মূল্যবান জ্ঞান নষ্ট হয়ে যেত — একে বলে catastrophic forgetting। আবার খুব ছোট দিলে শেখা অসম্ভব ধীর হতো। ফাইন-টিউনিং-এ 2e-5 থেকে 5e-5 হলো প্রমাণিত পরিসর।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Warmup কেন দরকার?</p>
+<p class="a">ট্রেনিং শুরুতে classification head সম্পূর্ণ এলোমেলো, তাই তখনকার gradient খুব বিশৃঙ্খল। ওই সময় পূর্ণ learning rate দিয়ে বড় পদক্ষেপ নিলে প্রি-ট্রেন করা ভালো ওজনগুলো ক্ষতিগ্রস্ত হতে পারে। তাই প্রথম ৬% ধাপে learning rate শূন্য থেকে ধীরে ধীরে বাড়ানো হয়।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Backpropagation কীভাবে কাজ করে?</p>
+<p class="a">Forward pass-এ ভবিষ্যদ্বাণী তৈরি হয়, তারপর loss হিসাব হয়। Backpropagation ক্যালকুলাসের চেইন রুল ব্যবহার করে হিসাব করে প্রতিটি প্যারামিটার সেই ভুলের জন্য কতটা দায়ী — এটিই gradient। এরপর optimizer প্রতিটি ওজনকে ভুল কমানোর দিকে সামান্য সরিয়ে দেয়।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Epoch কয়টা এবং মোট কতগুলো আপডেট হয়?</p>
+<p class="a">৫টি epoch। ১৬,০০০ বাক্য ÷ ৩২ ব্যাচ = ৫০০ step প্রতি epoch, অর্থাৎ মোট ২,৫০০ বার ওজন আপডেট হয়। প্রতিটি বাক্য মডেল ৫ বার দেখে।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Overfitting কীভাবে ঠেকিয়েছ?</p>
+<p class="a">চারভাবে — (১) প্রতি epoch-এ ভ্যালিডেশন সেটে যাচাই, (২) সর্বোচ্চ ভ্যালিডেশন macro-F1 পাওয়া চেকপয়েন্ট নির্বাচন (শেষেরটি নয়), (৩) weight decay 0.01, (৪) মাত্র ৫টি epoch।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Loss function কী ব্যবহার করেছ?</p>
+<p class="a">Cross-Entropy Loss, সূত্র −log(P<sub>সঠিক শ্রেণি</sub>)। এটি আত্মবিশ্বাসের সাথে ভুল করাকে সবচেয়ে কঠোরভাবে শাস্তি দেয় — যা কাম্য, কারণ আমরা চাই মডেল নিশ্চিত না হলে দ্বিধা প্রকাশ করুক।</p></div>
+
+<h3>গ · ডেটা সংক্রান্ত</h3>
+
+<div class="qa"><p class="q">প্রশ্ন: টেস্ট সেট আলাদা রাখা কেন জরুরি?</p>
+<p class="a">মডেল যদি পরীক্ষার প্রশ্ন আগে দেখে ফেলে, তার নম্বর অর্থহীন হয়ে যায় — সেটি প্রকৃত শেখার প্রমাণ দেয় না। আমাদের ২,০০০টি টেস্ট বাক্য ট্রেনিং বা চেকপয়েন্ট নির্বাচন — কোনোটিতেই ব্যবহৃত হয়নি। তাই ৯২.৭০% সংখ্যাটি বিশ্বাসযোগ্য।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Validation আর Test আলাদা কেন? একটা হলেই তো হতো?</p>
+<p class="a">না। ভ্যালিডেশন সেট দেখে আমরা সিদ্ধান্ত নিই (কোন চেকপয়েন্ট রাখব, কোন হাইপারপ্যারামিটার ভালো)। বারবার দেখে সিদ্ধান্ত নেওয়ার ফলে মডেল পরোক্ষভাবে ওই সেটের সাথে খাপ খেয়ে যায়। তাই সম্পূর্ণ নিরপেক্ষ চূড়ান্ত রায়ের জন্য তৃতীয় একটি সেট দরকার, যা কখনোই দেখা হয়নি।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: ডেটা ভারসাম্যহীন — এতে কী সমস্যা?</p>
+<p class="a">joy ৩৩.৫১% আর surprise মাত্র ৩.৫৮% — ৯.৪ গুণ পার্থক্য। ফলে একটি মডেল surprise সম্পূর্ণ উপেক্ষা করেও ভালো accuracy পেতে পারে। আমাদের ফলাফলেই এর প্রমাণ আছে: surprise-এর recall মাত্র ০.৬৮, অথচ sadness-এর ০.৯৭।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Stopword সরাওনি কেন?</p>
+<p class="a">ইচ্ছাকৃতভাবে। "not", "i", "am" — এই শব্দগুলোই আবেগের জন্য অত্যন্ত গুরুত্বপূর্ণ। "I am not happy" থেকে "not" সরালে অর্থ সম্পূর্ণ উল্টে যায়। ঐতিহ্যগত টেক্সট প্রসেসিং-এ stopword সরানো হয়, কিন্তু আবেগ শনাক্তকরণে সেটি ক্ষতিকর।</p></div>
+
+<h3>ঘ · মূল্যায়ন সংক্রান্ত</h3>
+
+<div class="qa"><p class="q">প্রশ্ন: Accuracy না দেখে macro-F1 দেখছ কেন?</p>
+<p class="a">ভারসাম্যহীন ডেটায় accuracy বিভ্রান্তিকর। Macro-F1 ছয়টি শ্রেণির F1-এর সরল গড় নেয়, তাই ৬৬ নমুনার surprise আর ৬৯৫ নমুনার joy সমান গুরুত্ব পায়। আমাদের ফলাফলেই পার্থক্যটা স্পষ্ট — macro-F1 ০.৮৮২৫ কিন্তু weighted-F1 ০.৯২৬৯, কারণ পরেরটি বিরল শ্রেণির দুর্বলতা ঢেকে দেয়।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Precision আর Recall-এর পার্থক্য বলো।</p>
+<p class="a">Precision = মডেল যতবার "joy" বলেছে তার কত ভাগ সঠিক ছিল। Recall = ডেটায় যত আসল joy ছিল তার কত ভাগ মডেল ধরতে পেরেছে। Precision ভুল অ্যালার্ম মাপে, Recall মিস করা মাপে। F1 হলো দুটোর হারমোনিক গড়।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: হারমোনিক গড় কেন, সাধারণ গড় নয়?</p>
+<p class="a">কারণ হারমোনিক গড়ে যেকোনো একটি মান খুব কম হলেই ফলাফল কমে যায়। যেমন precision ১.০০ আর recall ০.০২ হলে সাধারণ গড় ০.৫১ (ভালো দেখায়) কিন্তু F1 মাত্র ০.০৪ — যা বাস্তবতার সঠিক প্রতিফলন, কারণ মডেলটি কার্যত অকেজো।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Confusion matrix থেকে কী শিখলে?</p>
+<p class="a">তিনটি প্রধান ভুল — (১) joy ↔ love মোট ৫৫টি, (২) surprise → fear ১৫টি, (৩) anger ↔ sadness ২০টি। গুরুত্বপূর্ণ হলো এগুলো এলোমেলো ভুল নয়, <strong>ভাষাগতভাবে যুক্তিসঙ্গত</strong> — joy আর love প্রকৃতিগতভাবেই ঘনিষ্ঠ, আর বিস্ময় প্রায়ই ভয়ের ভাষা ব্যবহার করে।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: বেসলাইন কেন বানালে?</p>
+<p class="a">তুলনার মানদণ্ড ছাড়া "৯২.৭% ভালো" কথাটির কোনো অর্থ নেই। বেসলাইন দেখাল একটি সরল পদ্ধতি ৮৭.১৫% পায়, তাই ট্রান্সফরমারের +৫.৫৫ পয়েন্ট উন্নতি এর জটিলতা ও খরচকে ন্যায্যতা দেয়। এটি ছাড়া দাবিটি প্রমাণ করা যেত না।</p></div>
+
+<h3>ঙ · স্থাপত্য ও প্রকৌশল সংক্রান্ত</h3>
+
+<div class="qa"><p class="q">প্রশ্ন: BERT-এর বদলে DistilBERT কেন?</p>
+<p class="a">ফ্রি হোস্টিং-এ RAM মাত্র ৫১২ MB, GPU নেই। DistilBERT ৪০% ছোট ও ৬০% দ্রুত, অথচ BERT-এর ~৯৭% কর্মদক্ষতা ধরে রাখে। এটি একটি সচেতন প্রকৌশল সমঝোতা — সামান্য নির্ভুলতার বিনিময়ে বাস্তবে চালানোর সক্ষমতা।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: Attention কী এবং কেন গুরুত্বপূর্ণ?</p>
+<p class="a">Attention মডেলকে সিদ্ধান্ত নিতে দেয় একটি শব্দ প্রক্রিয়াকরণের সময় বাক্যের কোন শব্দগুলো বেশি গুরুত্বপূর্ণ। "I am not happy" বাক্যে "happy" দেখার সময় মডেল "not"-এ বেশি মনোযোগ দেয় এবং বোঝে অর্থ নেতিবাচক। TF-IDF শুধু শব্দ গোনে, এই সম্পর্কটি ধরতে পারে না — এখানেই ট্রান্সফরমারের মূল শ্রেষ্ঠত্ব।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: [CLS] টোকেন কী কাজ করে?</p>
+<p class="a">এটি বাক্যের শুরুতে বসা একটি বিশেষ টোকেন। সব স্তর পার হওয়ার পর এর ভেক্টরটি পুরো বাক্যের সারসংক্ষেপ ধারণ করে, এবং শ্রেণিবিন্যাসের সিদ্ধান্ত এই একটি ৭৬৮-মাত্রার ভেক্টর থেকেই নেওয়া হয়।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: মডেল লোড হতে ৩০ সেকেন্ড লাগলে ব্যবহারকারী কী দেখেন?</p>
+<p class="a">মডেল একটি ব্যাকগ্রাউন্ড থ্রেডে লোড হয়, তাই <code>/api/health</code> সাথে সাথে <code>status: "loading"</code> ফেরত দিতে পারে। ফ্রন্টএন্ড সেটি দেখে "মডেল জেগে উঠছে, এক মিনিট পর্যন্ত লাগতে পারে" বার্তা দেখায় — সাদা পর্দা বা ভাঙা অ্যাপ নয়।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: মডেল লোড না হলে কী হয়?</p>
+<p class="a">সিস্টেম বন্ধ হয় না — বেসলাইন মডেলে নেমে আসে এবং প্রতিটি উত্তরে <code>model_source: "baseline"</code> লিখে সৎভাবে জানায় যে এটি দুর্বল মডেলের ফলাফল। একে বলে graceful degradation।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: প্রতি অক্ষরে API ডাকো না কেন?</p>
+<p class="a">Debouncing ব্যবহার করেছি — টাইপ থামার ৪০০ms পরে একবার অনুরোধ যায়। এছাড়া নতুন অনুরোধ শুরু হলে আগেরটি বাতিল করা হয়, যাতে পুরনো ধীর উত্তর নতুন সঠিক উত্তরকে চাপা না দেয়।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: ব্যবহারকারীর লেখা কি সংরক্ষণ করো?</p>
+<p class="a">না। লগে শুধু টেক্সটের দৈর্ঘ্য, ফলাফলের লেবেল ও সময় রাখা হয় — লেখার বিষয়বস্তু কোথাও সংরক্ষিত হয় না। সেশন ইতিহাসও শুধু ব্যবহারকারীর নিজের ব্রাউজারে থাকে।</p></div>
+
+<h3>চ · সীমাবদ্ধতা সংক্রান্ত</h3>
+
+<div class="qa"><p class="q">প্রশ্ন: এই সিস্টেমের সবচেয়ে বড় দুর্বলতা কী?</p>
+<p class="a"><code>surprise</code> শ্রেণির recall মাত্র ০.৬৮১৮ — ৬৬টির মধ্যে ২১টি মিস করে, যার ১৫টি ভুল করে fear বলে। কারণ ট্রেনিং ডেটায় surprise মাত্র ৩.৫৮%। এটি অ্যাপের About পাতায় স্পষ্টভাবে দেখানো আছে, লুকানো হয়নি।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: বাংলা বা অন্য ভাষায় কাজ করবে?</p>
+<p class="a">না। মডেলটি শুধু ইংরেজিতে ট্রেন করা। অন্য ভাষা দিলে উত্তর আসবে, কিন্তু তা অর্থহীন হবে। বহুভাষিক সমর্থনের জন্য XLM-RoBERTa-র মতো মডেল লাগত।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: ব্যঙ্গ (sarcasm) ধরতে পারবে?</p>
+<p class="a">না। "বাহ, চমৎকার দিন" — ব্যঙ্গ হলে এটি রাগ বোঝায়, কিন্তু শব্দগুলো আনন্দের। ব্যঙ্গ বুঝতে সুর, প্রেক্ষাপট ও বক্তার সম্পর্কে জ্ঞান লাগে, যা শুধু লেখা থেকে পাওয়া যায় না।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: এটি মানসিক স্বাস্থ্য যাচাইয়ে ব্যবহার করা যাবে?</p>
+<p class="a">একেবারেই না। এটি চিকিৎসা বা রোগনির্ণয়ের যন্ত্র নয় — শুধু শব্দ দেখে অনুমান করে। মানসিক স্বাস্থ্য, নিয়োগ, বা কোনো ব্যক্তির অধিকার সংক্রান্ত সিদ্ধান্তে ব্যবহার করা নৈতিকভাবে অগ্রহণযোগ্য। এই সতর্কবার্তা অ্যাপের ফুটার ও About পাতায় লেখা আছে।</p></div>
+
+<div class="qa"><p class="q">প্রশ্ন: ফলাফল আরও ভালো করতে কী করতে?</p>
+<p class="a">(১) surprise-এর জন্য class weights চালু করা বা oversampling, (২) DistilBERT-এর বদলে RoBERTa বা DeBERTa ব্যবহার, (৩) একাধিক মডেলের ensemble, (৪) joy/love-এর মতো ঘনিষ্ঠ শ্রেণির জন্য বাড়তি ডেটা সংগ্রহ, (৫) হাইপারপ্যারামিটার অনুসন্ধান।</p></div>
+
+<!-- ============================== 18 ============================== -->
+<h2 class="pb">১৮. পরিভাষা — ইংরেজি ও বাংলা</h2>
+
+<table>
+  <thead><tr><th style="width:27%">ইংরেজি</th><th style="width:23%">বাংলা</th><th>অর্থ</th></tr></thead>
+  <tbody>
+    <tr><td>Machine Learning</td><td>মেশিন লার্নিং</td><td>ডেটা থেকে নিয়ম শেখার পদ্ধতি</td></tr>
+    <tr><td>Supervised Learning</td><td>তত্ত্বাবধানে শেখা</td><td>সঠিক উত্তর সহ শেখানো</td></tr>
+    <tr><td>Classification</td><td>শ্রেণিবিন্যাস</td><td>নির্দিষ্ট কয়েকটি ভাগে ফেলা</td></tr>
+    <tr><td>Label</td><td>লেবেল</td><td>একটি উদাহরণের সঠিক উত্তর</td></tr>
+    <tr><td>Feature</td><td>বৈশিষ্ট্য</td><td>ইনপুটের যে তথ্য থেকে সিদ্ধান্ত নেওয়া হয়</td></tr>
+    <tr><td>Train / Validation / Test</td><td>প্রশিক্ষণ / যাচাই / পরীক্ষা</td><td>ডেটার তিনটি ভাগ</td></tr>
+    <tr><td>Overfitting</td><td>অতি-অভিযোজন</td><td>বোঝার বদলে মুখস্থ করা</td></tr>
+    <tr><td>Regularization</td><td>নিয়মিতকরণ</td><td>ওভারফিটিং ঠেকানোর কৌশল</td></tr>
+    <tr><td>Tokenization</td><td>টোকেনাইজেশন</td><td>টেক্সটকে টুকরায় ভাগ করা</td></tr>
+    <tr><td>Embedding</td><td>এমবেডিং</td><td>শব্দের অর্থ বহনকারী ভেক্টর</td></tr>
+    <tr><td>Transformer</td><td>ট্রান্সফরমার</td><td>attention-ভিত্তিক নিউরাল স্থাপত্য</td></tr>
+    <tr><td>Attention</td><td>মনোযোগ</td><td>কোন শব্দ বেশি গুরুত্বপূর্ণ তা নির্ধারণ</td></tr>
+    <tr><td>Pre-training</td><td>প্রাক-প্রশিক্ষণ</td><td>বিপুল সাধারণ ডেটায় প্রাথমিক শেখা</td></tr>
+    <tr><td>Fine-tuning</td><td>সূক্ষ্ম সমন্বয়</td><td>নির্দিষ্ট কাজের জন্য অল্প সমন্বয়</td></tr>
+    <tr><td>Transfer Learning</td><td>জ্ঞান স্থানান্তর</td><td>এক কাজের শেখা অন্য কাজে লাগানো</td></tr>
+    <tr><td>Epoch</td><td>ইপক</td><td>পুরো ডেটা একবার দেখা</td></tr>
+    <tr><td>Batch</td><td>ব্যাচ</td><td>একসাথে প্রক্রিয়াকৃত নমুনার দল</td></tr>
+    <tr><td>Learning Rate</td><td>শিখন হার</td><td>প্রতি ধাপে ওজন কতটা বদলাবে</td></tr>
+    <tr><td>Loss Function</td><td>ক্ষতি ফাংশন</td><td>ভুলের পরিমাপ</td></tr>
+    <tr><td>Gradient</td><td>ঢাল</td><td>ভুল কমাতে কোন দিকে যেতে হবে</td></tr>
+    <tr><td>Backpropagation</td><td>পশ্চাৎ-প্রচারণ</td><td>দায় নির্ণয় করে ঢাল হিসাব</td></tr>
+    <tr><td>Optimizer</td><td>অপ্টিমাইজার</td><td>ওজন হালনাগাদের অ্যালগরিদম</td></tr>
+    <tr><td>Softmax</td><td>সফটম্যাক্স</td><td>স্কোরকে সম্ভাব্যতায় রূপান্তর</td></tr>
+    <tr><td>Logits</td><td>লজিট</td><td>softmax-এর আগের কাঁচা স্কোর</td></tr>
+    <tr><td>Inference</td><td>ইনফারেন্স</td><td>ট্রেন করা মডেল দিয়ে ভবিষ্যদ্বাণী</td></tr>
+    <tr><td>Checkpoint</td><td>চেকপয়েন্ট</td><td>মডেলের সংরক্ষিত অবস্থা</td></tr>
+    <tr><td>Accuracy</td><td>নির্ভুলতা</td><td>মোট সঠিক উত্তরের হার</td></tr>
+    <tr><td>Precision</td><td>শুদ্ধতা</td><td>বলা উত্তরগুলোর কত ভাগ সঠিক</td></tr>
+    <tr><td>Recall</td><td>পুনরুদ্ধার</td><td>আসল উদাহরণের কত ভাগ ধরা পড়ল</td></tr>
+    <tr><td>F1-Score</td><td>এফ-১ স্কোর</td><td>precision ও recall-এর হারমোনিক গড়</td></tr>
+    <tr><td>Macro-F1</td><td>ম্যাক্রো এফ-১</td><td>সব শ্রেণির F1-এর সরল গড়</td></tr>
+    <tr><td>Confusion Matrix</td><td>বিভ্রান্তি ছক</td><td>কোন শ্রেণি কোনটির সাথে গুলিয়েছে</td></tr>
+    <tr><td>Class Imbalance</td><td>শ্রেণি ভারসাম্যহীনতা</td><td>শ্রেণিগুলোর অসম পরিমাণ</td></tr>
+    <tr><td>Baseline</td><td>বেসলাইন</td><td>তুলনার জন্য সরল মডেল</td></tr>
+    <tr><td>API</td><td>এপিআই</td><td>প্রোগ্রামের মধ্যে যোগাযোগের মাধ্যম</td></tr>
+    <tr><td>Endpoint</td><td>এন্ডপয়েন্ট</td><td>API-র একটি নির্দিষ্ট ঠিকানা</td></tr>
+    <tr><td>Docker</td><td>ডকার</td><td>পরিবেশসহ অ্যাপ প্যাকেজ করার প্রযুক্তি</td></tr>
+    <tr><td>Cold Start</td><td>ঠান্ডা শুরু</td><td>ঘুমন্ত সার্ভার জাগার বিলম্ব</td></tr>
+    <tr><td>Debouncing</td><td>ডিবাউন্সিং</td><td>থামার পর একবার অনুরোধ পাঠানো</td></tr>
+    <tr><td>Graceful Degradation</td><td>সহনীয় অবনমন</td><td>সম্পূর্ণ বন্ধ না হয়ে সীমিত সেবা</td></tr>
+  </tbody>
+</table>
+
+<div class="box key" style="margin-top:2em">
+  <span class="t">শেষ কথা — উপস্থাপনার সময় মনে রাখুন</span>
+  <ol style="margin-bottom:0">
+    <li><strong>সৎ থাকুন।</strong> ট্রান্সফরমারটি আপনার নিজের ট্রেন করা নয় — এটি স্পষ্টভাবে বলুন। সততা দুর্বলতা নয়, এটি পেশাদারিত্ব।</li>
+    <li><strong>বেসলাইনের কথা বলুন।</strong> এটি আপনার নিজের ট্রেন করা এবং এটি প্রমাণ করে আপনি তুলনামূলক পদ্ধতি বোঝেন।</li>
+    <li><strong>macro-F1-এর যুক্তি বলুন।</strong> এটি দেখায় আপনি শুধু বড় সংখ্যা নয়, সঠিক সংখ্যা খুঁজছেন।</li>
+    <li><strong>surprise-এর দুর্বলতা নিজে থেকে বলুন।</strong> সীমাবদ্ধতা স্বীকার করা গবেষকের গুণ।</li>
+    <li><strong>confusion matrix-এর ব্যাখ্যা দিন।</strong> ভুলগুলো যুক্তিসঙ্গত — এটি বোঝা মানে গভীরে যাওয়া।</li>
+  </ol>
+</div>
